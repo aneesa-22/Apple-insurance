@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-// CHANGED: using Nodemailer instead of Resend
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -9,16 +8,7 @@ export const dynamic = "force-dynamic";
 /* Configuration                                                              */
 /* -------------------------------------------------------------------------- */
 
-// CHANGED: SMTP transporter replaces Resend
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 465),
-  secure: Number(process.env.SMTP_PORT || 465) === 465,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
@@ -414,20 +404,9 @@ export async function POST(request: NextRequest) {
   const notificationEmail = process.env.QUOTE_NOTIFICATION_EMAIL;
   const fromEmail = process.env.QUOTE_FROM_EMAIL;
 
-  // CHANGED: SMTP config check replaces RESEND_API_KEY check
-  if (
-    !process.env.SMTP_HOST ||
-    !process.env.SMTP_PORT ||
-    !process.env.SMTP_USER ||
-    !process.env.SMTP_PASS ||
-    !notificationEmail ||
-    !fromEmail
-  ) {
+  if (!process.env.RESEND_API_KEY || !notificationEmail || !fromEmail) {
     console.error("Missing contact email configuration", {
-      hasSmtpHost: Boolean(process.env.SMTP_HOST),
-      hasSmtpPort: Boolean(process.env.SMTP_PORT),
-      hasSmtpUser: Boolean(process.env.SMTP_USER),
-      hasSmtpPass: Boolean(process.env.SMTP_PASS),
+      hasResendKey: Boolean(process.env.RESEND_API_KEY),
       hasNotificationEmail: Boolean(notificationEmail),
       hasFromEmail: Boolean(fromEmail),
     });
@@ -440,17 +419,16 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // CHANGED: send internal email with SMTP instead of Resend
-  try {
-    await transporter.sendMail({
-      from: fromEmail,
-      to: notificationEmail,
-      subject: `New Contact Enquiry - ${data.firstName} ${data.lastName}`,
-      html: formatInternalEmailHtml(data),
-      replyTo: data.email,
-    });
-  } catch (error) {
-    console.error("Contact internal email failed", error);
+  const internalEmailResult = await resend.emails.send({
+    from: fromEmail,
+    to: notificationEmail,
+    subject: `New Contact Enquiry - ${data.firstName} ${data.lastName}`,
+    html: formatInternalEmailHtml(data),
+    replyTo: data.email,
+  });
+
+  if (internalEmailResult.error) {
+    console.error("Contact internal email failed", internalEmailResult.error);
 
     return jsonResponse(
       {
@@ -460,16 +438,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // CHANGED: send customer acknowledgement with SMTP instead of Resend
-  try {
-    await transporter.sendMail({
-      from: fromEmail,
-      to: data.email || "",
-      subject: "We’ve received your message",
-      html: formatCustomerEmailHtml(data.firstName || ""),
-    });
-  } catch (error) {
-    console.error("Contact customer email failed", error);
+  const customerEmailResult = await resend.emails.send({
+    from: fromEmail,
+    to: data.email || "",
+    subject: "We’ve received your message",
+    html: formatCustomerEmailHtml(data.firstName || ""),
+  });
+
+  if (customerEmailResult.error) {
+    console.error("Contact customer email failed", customerEmailResult.error);
 
     return jsonResponse(
       {

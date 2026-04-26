@@ -55,7 +55,25 @@ export default function TurnstileWidget({
   }, [onError]);
 
   useEffect(() => {
-    if (!enabled) return;
+    const cleanupWidget = () => {
+      if (widgetIdRef.current && window.turnstile) {
+        try {
+          window.turnstile.remove(widgetIdRef.current);
+        } catch {
+          // Ignore cleanup errors from stale widgets during dev refreshes.
+        }
+        widgetIdRef.current = null;
+      }
+
+      if (containerRef.current) {
+        containerRef.current.innerHTML = "";
+      }
+    };
+
+    if (!enabled) {
+      cleanupWidget();
+      return;
+    }
 
     const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
     if (!siteKey) return;
@@ -63,7 +81,7 @@ export default function TurnstileWidget({
     const renderWidget = () => {
       if (!window.turnstile || !containerRef.current) return;
 
-      if (widgetIdRef.current) return;
+      cleanupWidget();
 
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
@@ -76,7 +94,7 @@ export default function TurnstileWidget({
 
     if (window.turnstile) {
       renderWidget();
-      return;
+      return cleanupWidget;
     }
 
     const existingScript = document.querySelector(
@@ -85,7 +103,11 @@ export default function TurnstileWidget({
 
     if (existingScript) {
       existingScript.addEventListener("load", renderWidget);
-      return () => existingScript.removeEventListener("load", renderWidget);
+
+      return () => {
+        existingScript.removeEventListener("load", renderWidget);
+        cleanupWidget();
+      };
     }
 
     const script = document.createElement("script");
@@ -97,6 +119,7 @@ export default function TurnstileWidget({
 
     return () => {
       script.onload = null;
+      cleanupWidget();
     };
   }, [enabled]);
 
