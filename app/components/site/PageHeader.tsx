@@ -50,16 +50,16 @@ export default function  Header({ activePage }: PageHeaderProps) {
 
             <div className="relative z-10 pl-10 sm:pl-16">
               <p
-                className={`${libreBaskerville.className} text-[24px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+                className={`${libreBaskerville.className} text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
               >
                 Apple
               </p>
               <p
-                className={`${libreBaskerville.className} -mt-1 text-[24px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+                className={`${libreBaskerville.className} -mt-1 text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
               >
                 Insurance
               </p>
-              <p className="mt-0.5 pl-[2px] text-[11px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
+              <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
                 Services
               </p>
             </div>
