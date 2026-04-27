@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable} antialiased`}>{children}</body>
+      <body className={`${archivo.variable} antialiased`}>{children}<Analytics /></body>
     </html>
   );
 }
