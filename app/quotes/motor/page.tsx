@@ -512,7 +512,7 @@ export default function MotorTradeQuotePage() {
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                        Business structure
+                        What type of business are you?
                       </label>
                       <div className="grid gap-3">
                         {["Sole trader", "Partnership", "Limited company"].map(
@@ -537,7 +537,7 @@ export default function MotorTradeQuotePage() {
 
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                        Trading basis
+                        Do you work full-time or part-time?
                       </label>
                       <div className="grid gap-3">
                         {["Full-time", "Part-time"].map((option) => (
@@ -570,7 +570,7 @@ export default function MotorTradeQuotePage() {
                         htmlFor="occupation"
                         className="mb-2 block text-sm font-semibold text-[#081225]"
                       >
-                        Occupation
+                       What is your main occupation?
                       </label>
                       <input
                         id="occupation"
@@ -589,7 +589,7 @@ export default function MotorTradeQuotePage() {
                       htmlFor="businessName"
                       className="mb-2 block text-sm font-semibold text-[#081225]"
                     >
-                      Business name / trading name
+                      What is your business name?
                     </label>
                     <input
                       id="businessName"
@@ -607,7 +607,7 @@ export default function MotorTradeQuotePage() {
                       htmlFor="businessAddress"
                       className="mb-2 block text-sm font-semibold text-[#081225]"
                     >
-                      Business address
+                      What is your business address?
                     </label>
                     <input
                       id="businessAddress"
@@ -622,7 +622,7 @@ export default function MotorTradeQuotePage() {
 
                   <div>
                     <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Type of motor trade business
+                      What type of work do you do?
                     </label>
                     <div className="grid gap-3 sm:grid-cols-2">
                       {[
@@ -683,7 +683,7 @@ export default function MotorTradeQuotePage() {
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                        Business based at home address?
+                        Is your business run from your home address?
                       </label>
                       <div className="grid gap-3">
                         {["Yes", "No"].map((option) => (
@@ -709,7 +709,7 @@ export default function MotorTradeQuotePage() {
                         htmlFor="annualTurnover"
                         className="mb-2 block text-sm font-semibold text-[#081225]"
                       >
-                        Estimated annual turnover
+                        What is your estimated annual turnover (£)?
                       </label>
                       <input
                         id="annualTurnover"
@@ -726,7 +726,7 @@ export default function MotorTradeQuotePage() {
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
                       <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                        Any apprentices?
+                        Do you have any apprentices?
                       </label>
                       <div className="grid gap-3">
                         {["Yes", "No"].map((option) => (
@@ -752,7 +752,7 @@ export default function MotorTradeQuotePage() {
                         htmlFor="numberOfEmployees"
                         className="mb-2 block text-sm font-semibold text-[#081225]"
                       >
-                        Number of employees
+                        How many employees do you have?
                       </label>
                       <input
                         id="numberOfEmployees"
@@ -802,240 +802,229 @@ export default function MotorTradeQuotePage() {
             )}
 
             {step === 3 && (
-              <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
-                  Cover and vehicles
-                </h2>
-                <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Let us know the cover you need and the types of vehicles
-                  involved.
-                </p>
+  <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
+    <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+      Cover and vehicles
+    </h2>
+    <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
+      Let us know the cover you need and the types of vehicles involved.
+    </p>
 
-                <div className="mt-8 grid gap-5 sm:gap-6">
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Road risks cover
-                    </label>
-                    <div className="grid gap-3 sm:grid-cols-3">
-                      {[
-                        "Third Party Only",
-                        "Third Party Fire & Theft",
-                        "Comprehensive",
-                      ].map((option) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() => updateField("coverLevel", option)}
-                          className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.coverLevel === option
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="coverLevel" />
-                  </div>
+    <div className="mt-8 grid gap-5 sm:gap-6">
+      <div>
+        <label className="mb-2 block text-sm font-semibold text-[#081225]">
+          What level of cover do you need?
+        </label>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            "Third Party Only",
+            "Third Party Fire & Theft",
+            "Comprehensive",
+          ].map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => updateField("coverLevel", option)}
+              className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
+                formData.coverLevel === option
+                  ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
+                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        <FieldError field="coverLevel" />
+      </div>
 
-                  <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
-                    {[
-                      ["socialDomesticPleasure", "Social, domestic & pleasure"],
-                      ["commutingIncluded", "Commuting included"],
-                      ["businessUseIncluded", "Business use included"],
-                    ].map(([field, label]) => (
-                      <div key={field}>
-                        <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                          {label}
-                        </label>
-                        <div className="grid gap-3">
-                          {["Yes", "No"].map((option) => (
-                            <button
-                              key={option}
-                              type="button"
-                              onClick={() =>
-                                updateField(field as FormField, option)
-                              }
-                              className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
-                                formData[field as keyof typeof formData] === option
-                                  ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                              }`}
-                            >
-                              {option}
-                            </button>
-                          ))}
-                        </div>
-                        <FieldError field={field as FormField} />
-                      </div>
-                    ))}
-                  </div>
+      <div className="grid gap-5 sm:gap-6">
+  {[
+    [
+      "socialDomesticPleasure",
+      "Will the vehicle be used for personal use (non-work)?",
+    ],
+    [
+      "commutingIncluded",
+      "Will you use the vehicle for commuting (to and from work)?",
+    ],
+    ["businessUseIncluded", "Will the vehicle be used for business?"],
+    [
+      "proposerVehiclesCovered",
+      "Do you want to insure vehicles you own?",
+    ],
+    [
+      "customerVehiclesCovered",
+      "Will you be driving or working on customer vehicles?",
+    ],
+  ].map(([field, label]) => (
+    <div key={field}>
+      <label className="mb-2 block text-sm font-semibold leading-6 text-[#081225]">
+        {label}
+      </label>
+      <div className="grid grid-cols-2 gap-3 sm:max-w-[340px]">
+        {["Yes", "No"].map((option) => (
+          <button
+            key={option}
+            type="button"
+            onClick={() => updateField(field as FormField, option)}
+            className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
+              formData[field as keyof typeof formData] === option
+                ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
+                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+            }`}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+      <FieldError field={field as FormField} />
+    </div>
+  ))}
+</div>
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    {[
-                      [
-                        "proposerVehiclesCovered",
-                        "Vehicles owned by proposer covered?",
-                      ],
-                      [
-                        "customerVehiclesCovered",
-                        "Customer vehicles covered?",
-                      ],
-                    ].map(([field, label]) => (
-                      <div key={field}>
-                        <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                          {label}
-                        </label>
-                        <div className="grid gap-3">
-                          {["Yes", "No"].map((option) => (
-                            <button
-                              key={option}
-                              type="button"
-                              onClick={() =>
-                                updateField(field as FormField, option)
-                              }
-                              className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
-                                formData[field as keyof typeof formData] === option
-                                  ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                              }`}
-                            >
-                              {option}
-                            </button>
-                          ))}
-                        </div>
-                        <FieldError field={field as FormField} />
-                      </div>
-                    ))}
-                  </div>
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    <div>
-                      <label
-                        htmlFor="maxVehicleValue"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
-                      >
-                        Maximum vehicle value
-                      </label>
-                      <input
-                        id="maxVehicleValue"
-                        type="text"
-                        placeholder="Enter maximum vehicle value"
-                        value={formData.maxVehicleValue}
-                        onChange={(e) =>
-                          updateField("maxVehicleValue", e.target.value)
-                        }
-                        className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
-                      />
-                      <FieldError field="maxVehicleValue" />
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="maxVehicleCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
-                      >
-                        Maximum number of vehicles at one time
-                      </label>
-                      <input
-                        id="maxVehicleCount"
-                        type="text"
-                        placeholder="Enter maximum number"
-                        value={formData.maxVehicleCount}
-                        onChange={(e) =>
-                          updateField("maxVehicleCount", e.target.value)
-                        }
-                        className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
-                      />
-                      <FieldError field="maxVehicleCount" />
-                    </div>
-                  </div>
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+        <div>
+          <label
+  htmlFor="maxVehicleValue"
+  className="mb-2 block pt-6 text-sm font-semibold text-[#081225]"
+>
+  Maximum value of a vehicle (£)
+</label>
 
-                  <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Types of vehicles
-                    </label>
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {[
-                        "Cars",
-                        "Vans",
-                        "Motorcycles",
-                        "Prestige vehicles",
-                        "Commercial vehicles",
-                      ].map((type) => (
-                        <button
-                          key={type}
-                          type="button"
-                          onClick={() => toggleVehicleType(type)}
-                          className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.vehicleTypes.includes(type)
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {type}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="vehicleTypes" />
-                  </div>
+          <input
+            id="maxVehicleValue"
+            type="text"
+            placeholder="Enter maximum vehicle value"
+            value={formData.maxVehicleValue}
+            onChange={(e) => updateField("maxVehicleValue", e.target.value)}
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
+          />
+          <FieldError field="maxVehicleValue" />
+        </div>
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    {[
-                      ["highPerformanceVehicles", "Any high-performance vehicles?"],
-                      ["overnightLocation", "Where are vehicles kept overnight?"],
-                    ].map(([field, label]) => (
-                      <div key={field}>
-                        <label
-                          htmlFor={field}
-                          className="mb-2 block text-sm font-semibold text-[#081225]"
-                        >
-                          {label}
-                        </label>
-                        <input
-                          id={field}
-                          type="text"
-                          placeholder="Enter details"
-                          value={formData[field as keyof typeof formData] as string}
-                          onChange={(e) =>
-                            updateField(field as FormField, e.target.value)
-                          }
-                          className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
-                        />
-                        <FieldError field={field as FormField} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+        <div>
+          <label
+            htmlFor="maxVehicleCount"
+            className="mb-2 block text-sm font-semibold text-[#081225]"
+          >
+            Maximum number of vehicles you will have at one time
+          </label>
+          <input
+            id="maxVehicleCount"
+            type="text"
+            placeholder="Enter maximum number"
+            value={formData.maxVehicleCount}
+            onChange={(e) => updateField("maxVehicleCount", e.target.value)}
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
+          />
+          <FieldError field="maxVehicleCount" />
+        </div>
+      </div>
 
-                <div className="mt-10 space-y-4">
-                  <ErrorBox />
+      <div>
+        <label className="mb-2 block text-sm font-semibold text-[#081225]">
+          What types of vehicles do you need cover for?
+        </label>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            "Cars",
+            "Vans",
+            "Motorcycles",
+            "Prestige vehicles",
+            "Commercial vehicles",
+          ].map((type) => (
+            <button
+              key={type}
+              type="button"
+              onClick={() => toggleVehicleType(type)}
+              className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
+                formData.vehicleTypes.includes(type)
+                  ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
+                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+        <FieldError field="vehicleTypes" />
+      </div>
 
-                  <div className="flex flex-col gap-4 sm:flex-row">
-                    <button
-                      type="button"
-                      onClick={() => setStep(2)}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
-                    >
-                      Back
-                    </button>
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+        <div>
+          <label
+            htmlFor="highPerformanceVehicles"
+            className="mb-2 block text-sm font-semibold text-[#081225]"
+          >
+            Do you work with any high-performance vehicles?
+          </label>
+          <input
+            id="highPerformanceVehicles"
+            type="text"
+            placeholder="Enter details"
+            value={formData.highPerformanceVehicles}
+            onChange={(e) =>
+              updateField("highPerformanceVehicles", e.target.value)
+            }
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
+          />
+          <FieldError field="highPerformanceVehicles" />
+        </div>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (!validateStepThree()) return;
-                        setSubmitError("");
-                        setStep(4);
-                      }}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:text-base"
-                    >
-                      Next
-                    </button>
-                  </div>
-                </div>
-              </section>
-            )}
+        <div>
+          <label
+  htmlFor="overnightLocation"
+  className="mb-2 block pt-5 text-sm font-semibold text-[#081225]"
+>
+  Where are vehicles kept overnight?
+</label>
+
+          <input
+            id="overnightLocation"
+            type="text"
+            placeholder="Enter details"
+            value={formData.overnightLocation}
+            onChange={(e) =>
+              updateField("overnightLocation", e.target.value)
+            }
+            className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
+          />
+          <FieldError field="overnightLocation" />
+        </div>
+      </div>
+    </div>
+
+    <div className="mt-10 space-y-4">
+      <ErrorBox />
+
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <button
+          type="button"
+          onClick={() => setStep(2)}
+          className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+        >
+          Back
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            if (!validateStepThree()) return;
+            setSubmitError("");
+            setStep(4);
+          }}
+          className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:text-base"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </section>
+)}
+
 
             {step === 4 && (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
