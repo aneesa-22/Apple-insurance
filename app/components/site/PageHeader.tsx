@@ -38,14 +38,14 @@ export default function  Header({ activePage }: PageHeaderProps) {
 
   return (
     <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)]">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-6 sm:px-8 sm:pb-8 sm:pt-20">
+<div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
         <div className="flex items-start justify-between gap-4 sm:gap-6">
           <Link href="/" className="relative shrink-0">
             <img
               src="/icons/logo.png"
               alt=""
               aria-hidden="true"
-              className="absolute -left-4 -top-2 h-16 w-16 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
+              className="absolute -left-5 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
             />
 
             <div className="relative z-10 pl-10 sm:pl-16">
@@ -59,7 +59,7 @@ export default function  Header({ activePage }: PageHeaderProps) {
               >
                 Insurance
               </p>
-              <p className="mt-2 pl-[2px] text-[11px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
+              <p className="mt-0.5 pl-[2px] text-[11px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
                 Services
               </p>
             </div>

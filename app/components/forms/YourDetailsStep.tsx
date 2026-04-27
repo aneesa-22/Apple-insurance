@@ -165,7 +165,7 @@ export default function YourDetailsStep({
               type="date"
               value={formData.dateOfBirth}
               onChange={(e) => updateField("dateOfBirth", e.target.value)}
-              className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
+className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
             />
             <FieldError field="dateOfBirth" />
           </div>

@@ -29,21 +29,21 @@ export default function Home() {
       src="/icons/logo.png"
       alt=""
       aria-hidden="true"
-      className="absolute -left-4 -top-2 h-16 w-16 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
+      className="absolute -left-5 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
     />
 
     <div className="relative z-10 pl-10 sm:pl-16">
       <p
-        className={`${libreBaskerville.className} text-[24px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+        className={`${libreBaskerville.className} text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
       >
         Apple
       </p>
       <p
-        className={`${libreBaskerville.className} -mt-1 text-[24px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+        className={`${libreBaskerville.className} -mt-1 text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
       >
         Insurance
       </p>
-      <p className="mt-2 pl-[2px] text-[11px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
+      <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
         Services
       </p>
     </div>
@@ -741,7 +741,7 @@ export default function Home() {
                   src="/icons/logo.png"
                   alt=""
                   aria-hidden="true"
-                  className="absolute -left-2 -top-1 h-8 w-8 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
+                  className="absolute -left-3 -top-16 h-34 w-34 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
                 />
 
                 <div className="relative z-10 pl-5 sm:pl-8">
@@ -755,7 +755,7 @@ export default function Home() {
                   >
                     Insurance
                   </p>
-                  <p className="mt-1 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-1 sm:text-[7px]">
+                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-1 sm:text-[7px]">
                     Services
                   </p>
                 </div>

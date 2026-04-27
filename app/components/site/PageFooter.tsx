@@ -16,7 +16,7 @@ export default function QuoteFooter() {
                   src="/icons/logo.png"
                   alt=""
                   aria-hidden="true"
-                  className="absolute -left-2 -top-1 h-8 w-8 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
+                  className="absolute -left-3 -top-16 h-34 w-34 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
                 />
 
                 <div className="relative z-10 pl-5 sm:pl-8">
@@ -30,7 +30,7 @@ export default function QuoteFooter() {
                   >
                     Insurance
                   </p>
-                  <p className="mt-1 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-1 sm:text-[7px]">
+                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-1 sm:text-[7px]">
                     Services
                   </p>
                 </div>
