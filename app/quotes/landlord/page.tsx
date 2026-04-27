@@ -1282,6 +1282,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                     <p className="mb-3 text-sm font-semibold text-[#081225]">
                       Verification
                     </p>
+  <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
 
                     <TurnstileWidget
                       enabled={step === 3}
@@ -1294,7 +1295,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                     />
                   </div>
                 </div>
-
+</div>
                 <div className="mt-10 space-y-4">
                   <ErrorBox />
 

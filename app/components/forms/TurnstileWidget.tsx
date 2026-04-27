@@ -123,5 +123,10 @@ export default function TurnstileWidget({
     };
   }, [enabled]);
 
-  return <div ref={containerRef} className={className} />;
+  return (
+    <div
+      ref={containerRef}
+      className={`min-h-[74px] w-full rounded-2xl bg-white ${className}`}
+    />
+  );
 }

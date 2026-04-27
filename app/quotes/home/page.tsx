@@ -647,6 +647,8 @@ export default function HomeQuotePage() {
                             Verification
                           </p>
 
+  <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
+
                           <TurnstileWidget
                             enabled={step === 2}
                             onVerify={(token) => {
@@ -657,7 +659,7 @@ export default function HomeQuotePage() {
                             onError={() => setTurnstileToken("")}
                           />
                         </div>
-
+</div>
                 <div className="mt-10 space-y-4">
                   {submitError && (
                     <div className="rounded-2xl border border-[#7f1d1d]/20 bg-[#fdf1f1] px-5 py-4">
