@@ -30,7 +30,7 @@ export default function QuoteFooter() {
                   >
                     Insurance
                   </p>
-                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-1 sm:text-[7px]">
+                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-1 sm:text-[7px]">
                     Services
                   </p>
                 </div>

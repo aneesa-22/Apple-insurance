@@ -59,7 +59,7 @@ export default function  Header({ activePage }: PageHeaderProps) {
               >
                 Insurance
               </p>
-              <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
+              <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-2 sm:text-[13px]">
                 Services
               </p>
             </div>
