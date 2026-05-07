@@ -37,32 +37,34 @@ export default function  Header({ activePage }: PageHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)]">
+    <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)]">
 <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
         <div className="flex items-start justify-between gap-4 sm:gap-6">
           <Link href="/" className="relative shrink-0">
-            <img
-              src="/icons/logo.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute -left-5 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
-            />
+    <img
+      src="/icons/logo.png"
+      alt=""
+      aria-hidden="true"
+      className="absolute -left-4 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-10 sm:-top-30 sm:h-65 sm:w-65"
+    />
 
-            <div className="relative z-10 pl-10 sm:pl-16">
-              <p
-                className={`${libreBaskerville.className} text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-              >
-                Apple
-              </p>
-              <p
-                className={`${libreBaskerville.className} -mt-1 text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-              >
-                Insurance
-              </p>
-              <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-2 sm:text-[13px]">
-                Services
-              </p>
-            </div>
+    <div className="relative z-10 pl-10 sm:pl-16">
+  <p
+    className={`${libreBaskerville.className} text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+  >
+    Apple
+  </p>
+
+  <p
+    className={`${libreBaskerville.className} -mt-[2px] text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:-mt-1 sm:text-[36px]`}
+  >
+    Insurance
+  </p>
+
+  <p className="-mt-[1px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
+    Services
+  </p>
+</div>
           </Link>
 
           <button

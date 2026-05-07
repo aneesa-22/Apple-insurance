@@ -107,10 +107,6 @@ type MotorTradeQuotePayload = {
   licencePointsDetails?: string;
   accidentsOrClaims?: string;
   claimsDetails?: string;
-  insuranceCancelledDeclined?: string;
-  insuranceIssuesDetails?: string;
-  criminalConvictionsOrCcjs?: string;
-  disclosureDetails?: string;
   startDate?: string;
   additionalNotes?: string;
 };
@@ -475,28 +471,6 @@ function validatePayload(data: MotorTradeQuotePayload) {
     errors.claimsDetails = "Please provide the claims details.";
   }
 
-  if (!allowedYesNo.includes(data.insuranceCancelledDeclined || "")) {
-    errors.insuranceCancelledDeclined =
-      "Please tell us about any cancelled, declined, or refused insurance.";
-  }
-
-  if (
-    data.insuranceCancelledDeclined === "Yes" &&
-    !data.insuranceIssuesDetails
-  ) {
-    errors.insuranceIssuesDetails =
-      "Please provide the insurance history details.";
-  }
-
-  if (!allowedYesNo.includes(data.criminalConvictionsOrCcjs || "")) {
-    errors.criminalConvictionsOrCcjs =
-      "Please tell us about any criminal convictions, bankruptcy, or CCJs.";
-  }
-
-  if (data.criminalConvictionsOrCcjs === "Yes" && !data.disclosureDetails) {
-    errors.disclosureDetails = "Please provide the disclosure details.";
-  }
-
   if (!data.startDate) {
     errors.startDate = "Please enter the required start date.";
   } else if (!isValidDate(data.startDate) || !isFutureOrToday(data.startDate)) {
@@ -594,10 +568,6 @@ function formatInternalEmailHtml(data: MotorTradeQuotePayload) {
       ${row("Licence points details", data.licencePointsDetails)}
       ${row("Accidents or claims", data.accidentsOrClaims)}
       ${row("Claims details", data.claimsDetails)}
-      ${row("Insurance cancelled / declined", data.insuranceCancelledDeclined)}
-      ${row("Insurance issues details", data.insuranceIssuesDetails)}
-      ${row("Criminal convictions or CCJs", data.criminalConvictionsOrCcjs)}
-      ${row("Disclosure details", data.disclosureDetails)}
       ${row("Start date", data.startDate)}
       ${row("Additional notes", data.additionalNotes)}
     </div>
@@ -788,13 +758,6 @@ export async function POST(request: NextRequest) {
     licencePointsDetails: sanitise(rawData.licencePointsDetails, 500),
     accidentsOrClaims: sanitise(rawData.accidentsOrClaims, 10),
     claimsDetails: sanitise(rawData.claimsDetails, 500),
-    insuranceCancelledDeclined: sanitise(
-      rawData.insuranceCancelledDeclined,
-      10
-    ),
-    insuranceIssuesDetails: sanitise(rawData.insuranceIssuesDetails, 500),
-    criminalConvictionsOrCcjs: sanitise(rawData.criminalConvictionsOrCcjs, 10),
-    disclosureDetails: sanitise(rawData.disclosureDetails, 500),
     startDate: sanitise(rawData.startDate, 20),
     additionalNotes: sanitise(rawData.additionalNotes, 1000),
   };

@@ -48,9 +48,7 @@ export default function TaxiQuotePage() {
     noClaimsBonus: "",
     hadClaims: "",
     claimCount: "",
-    criminalConvictionsOrCcjs: "",
     renewalDate: "",
-    policyCancelledDeclinedVoided: "",
     additionalNotes: "",
   });
 
@@ -166,15 +164,6 @@ export default function TaxiQuotePage() {
       errors.renewalDate = "Please enter your current policy renewal date.";
     }
 
-    if (!formData.policyCancelledDeclinedVoided) {
-      errors.policyCancelledDeclinedVoided =
-        "Please tell us if a policy has ever been cancelled, declined, or voided.";
-    }
-
-    if (!formData.criminalConvictionsOrCcjs) {
-      errors.criminalConvictionsOrCcjs =
-        "Please tell us if you have any criminal convictions, bankruptcy, or CCJs.";
-    }
 
     setFieldErrors(errors);
     setSubmitError(
@@ -251,7 +240,7 @@ export default function TaxiQuotePage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Taxi Insurance
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Let&apos;s find the right taxi insurance for you
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -300,7 +289,7 @@ export default function TaxiQuotePage() {
                       setSubmitError("");
                       setStep(2);
                     }}
-                    className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:w-auto sm:text-base"
+                    className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
                   >
                     Next
                   </button>
@@ -308,7 +297,7 @@ export default function TaxiQuotePage() {
 
             ) : (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Your vehicle & cover details
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -325,7 +314,7 @@ export default function TaxiQuotePage() {
                   <div>
                     <label
                       htmlFor="licenceNumber"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Driving Licence number
                     </label>
@@ -343,7 +332,7 @@ export default function TaxiQuotePage() {
                   <div>
                     <label
                       htmlFor="licenceAuthority"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Licensing authority
                     </label>
@@ -363,7 +352,7 @@ export default function TaxiQuotePage() {
                   <div>
                     <label
                       htmlFor="vehicleRegistration"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Vehicle Registration (VRN)
                     </label>
@@ -384,7 +373,7 @@ export default function TaxiQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       No claims bonus{" "}
                       <span className="font-normal text-zinc-500">(years)</span>
                     </label>
@@ -398,7 +387,7 @@ export default function TaxiQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.noClaimsBonus === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -409,7 +398,7 @@ export default function TaxiQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Any claims in the last 5 years?
                     </label>
 
@@ -428,7 +417,7 @@ export default function TaxiQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.hadClaims === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -442,7 +431,7 @@ export default function TaxiQuotePage() {
                     <div>
                       <label
                         htmlFor="claimCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         How many claims
                       </label>
@@ -462,7 +451,7 @@ export default function TaxiQuotePage() {
                   <div>
                     <label
                       htmlFor="renewalDate"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Current policy renewal date
                     </label>
@@ -477,61 +466,9 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Has a policy ever been cancelled, declined or voided?
-                    </p>
-
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {["Yes", "No"].map((option) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() =>
-                            updateField("policyCancelledDeclinedVoided", option)
-                          }
-                          className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.policyCancelledDeclinedVoided === option
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="policyCancelledDeclinedVoided" />
-                  </div>
-
-                  <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Any criminal convictions, bankruptcy, or CCJs?
-                    </p>
-
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {["Yes", "No"].map((option) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() =>
-                            updateField("criminalConvictionsOrCcjs", option)
-                          }
-                          className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.criminalConvictionsOrCcjs === option
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="criminalConvictionsOrCcjs" />
-                  </div>
-
-                  <div>
                     <label
                       htmlFor="additionalNotes"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Additional details{" "}
                       <span className="font-normal text-zinc-500">(Optional)</span>
@@ -552,7 +489,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
   <ErrorBox />
 
   <div className="mt-6">
-    <p className="mb-3 text-sm font-semibold text-[#081225]">
+    <p className="mb-3 text-sm font-semibold text-[#10203d]">
       Verification
     </p>
   <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
@@ -584,7 +521,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
       <button
         type="button"
         onClick={() => setStep(1)}
-        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
       >
         Back
       </button>
@@ -593,7 +530,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
         type="button"
         onClick={handleSubmit}
         disabled={isSubmitting}
-        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
       >
         {isSubmitting ? "Submitting..." : "Submit enquiry"}
       </button>
@@ -621,7 +558,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 1 ? (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you begin
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -629,7 +566,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   can provide an accurate quote.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   What happens next
                 </h3>
                 <div className="mt-3 space-y-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -646,7 +583,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>
@@ -659,7 +596,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </aside>
             ) : (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you submit
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -667,7 +604,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   so we can provide an accurate quote.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   What happens next
                 </h3>
                 <div className="mt-3 space-y-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -684,7 +621,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>

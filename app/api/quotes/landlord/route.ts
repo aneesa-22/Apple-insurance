@@ -89,8 +89,6 @@ type LandlordQuotePayload = {
   electricalSafetyCertificate?: string;
   previousInsurerName?: string;
   renewalDate?: string;
-  policyCancelledDeclinedVoided?: string;
-  criminalConvictionsOrCcjs?: string;
   additionalNotes?: string;
 };
 
@@ -479,16 +477,7 @@ function validatePayload(data: LandlordQuotePayload) {
     errors.renewalDate = "Please enter a valid renewal date.";
   }
 
-  if (!allowedYesNo.includes(data.policyCancelledDeclinedVoided || "")) {
-    errors.policyCancelledDeclinedVoided =
-      "Please tell us if a policy has ever been cancelled, declined or voided.";
-  }
-
-  if (!allowedYesNo.includes(data.criminalConvictionsOrCcjs || "")) {
-    errors.criminalConvictionsOrCcjs =
-      "Please tell us if there are any criminal convictions, bankruptcy, or CCJs.";
-  }
-
+ 
   if (data.additionalNotes && data.additionalNotes.length > 1000) {
     errors.additionalNotes =
       "Additional details must be under 1000 characters.";
@@ -579,14 +568,6 @@ function formatInternalEmailHtml(data: LandlordQuotePayload) {
       )}
       ${row("Previous insurer", data.previousInsurerName)}
       ${row("Renewal date", data.renewalDate)}
-      ${row(
-        "Policy cancelled / declined / voided",
-        data.policyCancelledDeclinedVoided
-      )}
-      ${row(
-        "Criminal convictions / bankruptcy / CCJs",
-        data.criminalConvictionsOrCcjs
-      )}
       ${row("Additional notes", data.additionalNotes)}
     </div>
   `;
@@ -775,12 +756,6 @@ export async function POST(request: NextRequest) {
     ),
     previousInsurerName: sanitise(rawData.previousInsurerName, 120),
     renewalDate: sanitise(rawData.renewalDate, 20),
-    policyCancelledDeclinedVoided: sanitise(
-      rawData.policyCancelledDeclinedVoided,
-      10
-    ),
-    criminalConvictionsOrCcjs: sanitise(rawData.criminalConvictionsOrCcjs, 10),
-    additionalNotes: sanitise(rawData.additionalNotes, 1000),
   };
 
   const errors = validatePayload(data);

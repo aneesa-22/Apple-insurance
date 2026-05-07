@@ -32,7 +32,7 @@ export default function PrivacyNoticePage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Privacy Notice
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Privacy notice
             </h1>
             <p className="mt-4 max-w-3xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -45,7 +45,7 @@ export default function PrivacyNoticePage() {
           <div className="rounded-[1.5rem] border border-zinc-200 bg-white px-4 py-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
             <div className="space-y-8 text-[15px] leading-7 text-zinc-700 sm:space-y-10 sm:text-[17px] sm:leading-8">
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Who we are
                 </h2>
                 <p className="mt-3">
@@ -57,7 +57,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   What information we collect
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -77,7 +77,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   How we use your information
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -130,7 +130,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Who we may share your information with
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -177,7 +177,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   How we store your information
                 </h2>
                 <p className="mt-3">
@@ -190,7 +190,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Your rights
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -238,7 +238,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Confidentiality
                 </h2>
                 <p className="mt-3">
@@ -249,7 +249,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Cookies and website use
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -267,7 +267,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Providing information to insurers
                 </h2>
                 <div className="mt-3 space-y-4">
@@ -285,7 +285,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Contact us
                 </h2>
                 <p className="mt-3">
@@ -295,7 +295,7 @@ export default function PrivacyNoticePage() {
                 </p>
 
                 <div className="mt-4 rounded-2xl border border-zinc-200 bg-[#f7f4ef] p-4 sm:p-5">
-                  <p className="font-semibold text-[#081225]">
+                  <p className="font-semibold text-[#10203d]">
                     Apple Insurance Services
                   </p>
                   <p className="mt-2">363 Barlow Moor Rd</p>
@@ -323,7 +323,7 @@ export default function PrivacyNoticePage() {
               </section>
 
               <section>
-                <h2 className="text-[19px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[19px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Changes to this notice
                 </h2>
                 <p className="mt-3">
@@ -342,7 +342,7 @@ export default function PrivacyNoticePage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)] px-5 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10">
+          <div className="mt-8 rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-5 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
                 <h2 className="text-[22px] font-semibold tracking-tight text-white sm:text-2xl">
@@ -357,7 +357,7 @@ export default function PrivacyNoticePage() {
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:shrink-0">
                 <Link
                   href="/contact"
-                  className="inline-flex h-12 w-full items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-6 text-sm font-semibold text-[#081225] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white sm:w-auto sm:min-w-[140px]"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-6 text-sm font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white sm:w-auto sm:min-w-[140px]"
                 >
                   Contact us
                 </Link>

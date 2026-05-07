@@ -35,7 +35,7 @@ export default function AboutPage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               About Us
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               About Apple Insurance Services
             </h1>
             <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -50,7 +50,7 @@ export default function AboutPage() {
       <section className="bg-[#f7f4ef] px-4 py-10 sm:px-8 sm:py-12 lg:px-16">
         <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
           <div className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-            <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+            <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
               Our story
             </h2>
             <div className="mt-6 space-y-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -69,7 +69,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),radial-gradient(circle_at_85%_18%,_rgba(38,84,160,0.16),_transparent_30%),linear-gradient(135deg,#101a31_0%,#14203b_52%,#0d1730_100%)] p-6 text-white shadow-[0_18px_50px_rgba(8,18,37,0.18),inset_0_1px_0_rgba(255,255,255,0.05)] sm:rounded-[2rem] sm:p-8">
+          <div className="rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] p-6 text-white shadow-[0_18px_50px_rgba(8,18,37,0.18),inset_0_1px_0_rgba(255,255,255,0.05)] sm:rounded-[2rem] sm:p-8">
             <h2 className="text-[21px] font-semibold tracking-tight text-white sm:text-2xl">
               At a glance
             </h2>
@@ -118,7 +118,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
       <section className="bg-white px-4 py-10 sm:px-8 sm:py-12 lg:px-16">
         <div className="mx-auto w-full max-w-6xl">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Why customers choose us
             </h2>
             <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -137,7 +137,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#081225]">
+              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#10203d]">
                 Established experience
               </h3>
               <p className="mt-3 text-[15px] leading-7 text-zinc-600">
@@ -153,7 +153,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#081225]">
+              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#10203d]">
                 Personal service
               </h3>
               <p className="mt-3 text-[15px] leading-7 text-zinc-600">
@@ -170,7 +170,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#081225]">
+              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#10203d]">
                 Taxi specialists
               </h3>
               <p className="mt-3 text-[15px] leading-7 text-zinc-600">
@@ -187,7 +187,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#081225]">
+              <h3 className="mt-5 text-[18px] font-semibold leading-tight tracking-tight text-[#10203d]">
                 Clear guidance
               </h3>
               <p className="mt-3 text-[15px] leading-7 text-zinc-600">
@@ -200,7 +200,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
       </section>
 
       <section className="bg-[#f7f4ef] px-4 py-10 sm:px-8 sm:py-12 lg:px-16">
-        <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+        <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-[680px]">
               <h2 className="text-3xl font-semibold tracking-tight text-white">
@@ -214,7 +214,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
 
             <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
               <Link
-                className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#081225] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
+                className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
                 href="/#find-cover"
                 onClick={(e) => {
                   const isHomePage = window.location.pathname === "/";

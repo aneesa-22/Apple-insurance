@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <section className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(24,64,128,0.22),_transparent_26%),linear-gradient(135deg,#07101f_0%,#0c1730_52%,#081225_100%)] px-5 py-12 sm:min-h-[78vh] sm:px-8 sm:py-20 lg:min-h-[68vh] lg:px-16 lg:py-24">
+<section className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-5 py-12 sm:min-h-[78vh] sm:px-8 sm:py-20 lg:min-h-[68vh] lg:px-16 lg:py-24">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:gap-10">
           <header className="mb-10 flex flex-col gap-5 sm:mb-16 sm:gap-6 lg:mb-24">
             <div className="flex items-start justify-between gap-4 sm:gap-6">
@@ -29,25 +29,27 @@ export default function Home() {
       src="/icons/logo.png"
       alt=""
       aria-hidden="true"
-      className="absolute -left-5 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
+      className="absolute -left-4 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-10 sm:-top-30 sm:h-65 sm:w-65"
     />
 
     <div className="relative z-10 pl-10 sm:pl-16">
-      <p
-        className={`${libreBaskerville.className} text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-      >
-        Apple
-      </p>
-      <p
-        className={`${libreBaskerville.className} -mt-1 text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-      >
-        Insurance
-      </p>
-      <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-2 sm:text-[13px]">
-  Services
-</p>
+  <p
+    className={`${libreBaskerville.className} text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+  >
+    Apple
+  </p>
 
-    </div>
+  <p
+    className={`${libreBaskerville.className} -mt-[2px] text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:-mt-1 sm:text-[36px]`}
+  >
+    Insurance
+  </p>
+
+  <p className="-mt-[1px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
+    Services
+  </p>
+</div>
+
   </Link>
 
 
@@ -202,7 +204,7 @@ export default function Home() {
 
             <div className="mt-1 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
               <Link
-                className="inline-flex h-14 w-full min-w-0 items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-[17px] font-bold text-[#081225] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white sm:min-w-[230px]"
+                className="inline-flex h-14 w-full min-w-0 items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-[17px] font-bold text-[#10203d] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white sm:min-w-[230px]"
                 href="/#find-cover"
                 onClick={(e) => {
                   const isHomePage = window.location.pathname === "/";
@@ -238,7 +240,7 @@ export default function Home() {
 
     <div className="flex min-h-[58vh] flex-col justify-center sm:min-h-[62vh] lg:min-h-[66vh]">
       <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-14">
-        <h2 className="text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
           Find the cover you need
         </h2>
 
@@ -258,7 +260,7 @@ export default function Home() {
             />
           </div>
 
-          <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#081225] sm:mt-6 sm:text-[18px] lg:text-[19px]">
+          <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#10203d] sm:mt-6 sm:text-[18px] lg:text-[19px]">
             Taxi Insurance
           </h3>
 
@@ -281,7 +283,7 @@ export default function Home() {
             />
           </div>
 
-          <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#081225] sm:mt-6 sm:text-[18px] lg:text-[19px]">
+          <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#10203d] sm:mt-6 sm:text-[18px] lg:text-[19px]">
             Home Insurance
           </h3>
 
@@ -304,7 +306,7 @@ export default function Home() {
                     />
                   </div>
 
-                  <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#081225] sm:mt-6 sm:text-[18px] lg:text-[19px]">
+                  <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#10203d] sm:mt-6 sm:text-[18px] lg:text-[19px]">
                     Landlord Insurance
                   </h3>
 
@@ -327,7 +329,7 @@ export default function Home() {
                     />
                   </div>
 
-                  <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#081225] sm:mt-6 sm:text-[18px] lg:text-[19px]">
+                  <h3 className="mt-5 text-[14px] font-semibold leading-tight tracking-tight text-[#10203d] sm:mt-6 sm:text-[18px] lg:text-[19px]">
                     Motor Insurance
                   </h3>
 
@@ -346,7 +348,7 @@ export default function Home() {
         </section>
 
 
-      <section className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.18),_transparent_24%),radial-gradient(circle_at_85%_20%,_rgba(24,64,128,0.16),_transparent_28%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)] px-5 py-16 sm:px-8 sm:py-20 lg:px-16">
+      <section className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-5 py-16 sm:px-8 sm:py-20 lg:px-16">
         <div className="mx-auto w-full max-w-5xl">
           <div className="mx-auto mb-10 max-w-2xl text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -430,7 +432,7 @@ export default function Home() {
   <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
     <div className="max-w-xl">
       
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
         How it works
       </h2>
       <p className="mt-4 text-[16px] leading-7 text-zinc-600 sm:text-[19px] sm:leading-8 lg:text-[21px] lg:leading-9">
@@ -448,7 +450,7 @@ export default function Home() {
           }
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-7 sm:py-6"
         >
-          <span className="text-[17px] font-semibold tracking-tight text-[#081225] sm:text-[20px]">
+          <span className="text-[17px] font-semibold tracking-tight text-[#10203d] sm:text-[20px]">
             How long does it take to get a quote?
           </span>
           <span className="shrink-0 text-[26px] leading-none text-[#7f1d1d]">
@@ -477,7 +479,7 @@ export default function Home() {
           }
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-7 sm:py-6"
         >
-          <span className="text-[17px] font-semibold tracking-tight text-[#081225] sm:text-[20px]">
+          <span className="text-[17px] font-semibold tracking-tight text-[#10203d] sm:text-[20px]">
             How our quote process works
           </span>
           <span className="shrink-0 text-[26px] leading-none text-[#7f1d1d]">
@@ -530,7 +532,7 @@ export default function Home() {
           }
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-7 sm:py-6"
         >
-          <span className="text-[17px] font-semibold tracking-tight text-[#081225] sm:text-[20px]">
+          <span className="text-[17px] font-semibold tracking-tight text-[#10203d] sm:text-[20px]">
             Who we are
           </span>
           <span className="shrink-0 text-[26px] leading-none text-[#7f1d1d]">
@@ -556,7 +558,7 @@ export default function Home() {
           }
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-7 sm:py-6"
         >
-          <span className="text-[17px] font-semibold tracking-tight text-[#081225] sm:text-[20px]">
+          <span className="text-[17px] font-semibold tracking-tight text-[#10203d] sm:text-[20px]">
             Why choose us
           </span>
           <span className="shrink-0 text-[26px] leading-none text-[#7f1d1d]">
@@ -613,7 +615,7 @@ export default function Home() {
 <section className="bg-[#f7f4ef] px-5 py-16 sm:px-8 sm:py-24 lg:px-20">
   <div className="mx-auto w-full max-w-5xl">
     <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
-      <h2 className="text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+      <h2 className="text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
         What our customers say
       </h2>
       <p className="mt-3 text-[15px] leading-6 text-zinc-700 sm:mt-4 sm:text-[17px] sm:leading-8 lg:text-[21px] lg:leading-8">
@@ -636,7 +638,7 @@ export default function Home() {
         </p>
 
         <div className="mt-4 border-t border-zinc-200 pt-3 sm:mt-6 sm:pt-4">
-          <p className="font-semibold text-[#081225]">Google Review</p>
+          <p className="font-semibold text-[#10203d]">Google Review</p>
           <p className="mt-1 text-sm text-zinc-500">Taxi Insurance Customer</p>
         </div>
       </div>
@@ -655,7 +657,7 @@ export default function Home() {
         </p>
 
         <div className="mt-4 border-t border-zinc-200 pt-3 sm:mt-6 sm:pt-4">
-          <p className="font-semibold text-[#081225]">Sheikh A.</p>
+          <p className="font-semibold text-[#10203d]">Sheikh A.</p>
           <p className="mt-1 text-sm text-zinc-500">Home Insurance Customer</p>
         </div>
       </div>
@@ -674,7 +676,7 @@ export default function Home() {
         </p>
 
         <div className="mt-4 border-t border-zinc-200 pt-3 sm:mt-6 sm:pt-4">
-          <p className="font-semibold text-[#081225]">Jan M.</p>
+          <p className="font-semibold text-[#10203d]">Jan M.</p>
           <p className="mt-1 text-sm text-zinc-500">
             Taxi Insurance Customer
           </p>
@@ -690,7 +692,7 @@ export default function Home() {
 
 
       <section className="bg-[#f7f4ef] px-5 py-16 sm:px-8 sm:py-20 lg:px-16">
-        <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+        <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-[680px]">
               <h2 className="text-3xl font-semibold tracking-tight text-white">
@@ -706,7 +708,7 @@ export default function Home() {
 
                                 <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                                   <Link
-                                    className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#081225] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
+                                    className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
                                     href="/#find-cover"
                                     onClick={(e) => {
                                       const isHomePage = window.location.pathname === "/";
@@ -733,7 +735,7 @@ export default function Home() {
                             </div>
                           </section>
 
-                  <footer className="bg-[#081225] px-5 py-14 sm:px-8 sm:py-16 lg:px-16">
+                  <footer className="bg-[#10203d] px-5 py-14 sm:px-8 sm:py-16 lg:px-16">
                 <div className="mx-auto w-full max-w-5xl">
                   <div className="grid gap-12 border-b border-white/10 pb-10 md:grid-cols-[1.5fr_1fr]">
                     <div>
@@ -742,24 +744,25 @@ export default function Home() {
                   src="/icons/logo.png"
                   alt=""
                   aria-hidden="true"
-                  className="absolute -left-3 -top-16 h-34 w-34 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
+                  className="absolute -left-2 -top-16 h-32 w-32 object-contain opacity-80 sm:-left-4 sm:-top-16 sm:h-34 sm:w-34"
                 />
+<div className="relative z-10 pl-5 sm:pl-8">
+  <p
+    className={`${libreBaskerville.className} text-[9px] font-bold leading-[1] tracking-tight text-white sm:text-[16px] sm:leading-[0.95]`}
+  >
+    Apple
+  </p>
 
-                <div className="relative z-10 pl-5 sm:pl-8">
-                  <p
-                    className={`${libreBaskerville.className} text-[12px] font-bold leading-[0.95] tracking-tight text-white sm:text-[18px]`}
-                  >
-                    Apple
-                  </p>
-                  <p
-                    className={`${libreBaskerville.className} -mt-0.5 text-[12px] font-bold leading-[0.95] tracking-tight text-white sm:text-[18px]`}
-                  >
-                    Insurance
-                  </p>
-                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-1 sm:text-[7px]">
-                    Services
-                  </p>
-                </div>
+  <p
+    className={`${libreBaskerville.className} mt-0 text-[9px] font-bold leading-[1] tracking-tight text-white sm:-mt-0.5 sm:text-[16px] sm:leading-[0.95]`}
+  >
+    Insurance
+  </p>
+
+  <p className="mt-[1px] text-[4px] font-bold uppercase tracking-[0.06em] text-[#9f1d1d] sm:mt-1 sm:text-[7px] sm:tracking-[0.12em]">
+    Services
+  </p>
+</div>
               </Link>
 
 

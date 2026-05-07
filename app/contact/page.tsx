@@ -82,32 +82,34 @@ export default function ContactPage() {
 
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#07101f_0%,#0c1730_55%,#081225_100%)]">
+      <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)]">
 <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
           <div className="flex items-start justify-between gap-4 sm:gap-6">
             <Link href="/" className="relative shrink-0">
-              <img
-                src="/icons/logo.png"
-                alt=""
-                aria-hidden="true"
-                className="absolute -left-5 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-9 sm:-top-28 sm:h-60 sm:w-60"
-              />
+    <img
+      src="/icons/logo.png"
+      alt=""
+      aria-hidden="true"
+      className="absolute -left-4 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-10 sm:-top-30 sm:h-65 sm:w-65"
+    />
 
-              <div className="relative z-10 pl-10 sm:pl-16">
-                <p
-                  className={`${libreBaskerville.className} text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-                >
-                  Apple
-                </p>
-                <p
-                  className={`${libreBaskerville.className} -mt-1 text-[20px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-                >
-                  Insurance
-                </p>
-                <p className="mt-0.5 pl-[2px] text-[9px] font-medium uppercase tracking-[0.26em] text-[#7f1d1d] sm:mt-2 sm:text-[13px]">
-                  Services
-                </p>
-              </div>
+    <div className="relative z-10 pl-10 sm:pl-16">
+  <p
+    className={`${libreBaskerville.className} text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
+  >
+    Apple
+  </p>
+
+  <p
+    className={`${libreBaskerville.className} -mt-[2px] text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:-mt-1 sm:text-[36px]`}
+  >
+    Insurance
+  </p>
+
+  <p className="-mt-[1px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
+    Services
+  </p>
+</div>
             </Link>
 
             <button
@@ -241,7 +243,7 @@ export default function ContactPage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Contact Us
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Get in touch
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -252,7 +254,7 @@ export default function ContactPage() {
 
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
             <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-              <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+              <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                 Send us a message
               </h2>
               <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -265,7 +267,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="firstName"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       First name
                     </label>
@@ -287,7 +289,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="lastName"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Last name
                     </label>
@@ -311,7 +313,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Phone number
                     </label>
@@ -333,7 +335,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Email address
                     </label>
@@ -356,7 +358,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="enquiryType"
-                    className="mb-2 block text-sm font-semibold text-[#081225]"
+                    className="mb-2 block text-sm font-semibold text-[#10203d]"
                   >
                     What do you need help with?
                   </label>
@@ -402,7 +404,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-semibold text-[#081225]"
+                    className="mb-2 block text-sm font-semibold text-[#10203d]"
                   >
                     Message
                   </label>
@@ -422,7 +424,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <p className="mb-3 text-sm font-semibold text-[#081225]">
+                  <p className="mb-3 text-sm font-semibold text-[#10203d]">
                     Verification
                   </p>
   <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
@@ -468,7 +470,7 @@ export default function ContactPage() {
                       type="button"
                       onClick={handleSubmit}
                       disabled={isSubmitting}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                     >
                       {isSubmitting ? "Sending..." : "Send message"}
                     </button>
@@ -478,7 +480,7 @@ export default function ContactPage() {
             </section>
 
             <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-              <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+              <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                 Contact details
               </h2>
               <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -494,7 +496,7 @@ export default function ContactPage() {
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold tracking-tight text-[#081225]">
+                    <h3 className="text-lg font-semibold tracking-tight text-[#10203d]">
                       Call us
                     </h3>
                   </div>
@@ -516,7 +518,7 @@ export default function ContactPage() {
                       alt="Email icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold tracking-tight text-[#081225]">
+                    <h3 className="text-lg font-semibold tracking-tight text-[#10203d]">
                       Email us
                     </h3>
                   </div>
@@ -538,7 +540,7 @@ export default function ContactPage() {
                       alt="Map icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold tracking-tight text-[#081225]">
+                    <h3 className="text-lg font-semibold tracking-tight text-[#10203d]">
                       Visit us
                     </h3>
                   </div>
@@ -555,7 +557,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="border-t border-zinc-200 pt-6">
-                  <h3 className="text-lg font-semibold tracking-tight text-[#081225]">
+                  <h3 className="text-lg font-semibold tracking-tight text-[#10203d]">
                     What happens next
                   </h3>
                   <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -565,7 +567,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="rounded-2xl border border-[#7f1d1d]/10 bg-white px-5 py-5">
-                  <h3 className="text-lg font-semibold tracking-tight text-[#081225]">
+                  <h3 className="text-lg font-semibold tracking-tight text-[#10203d]">
                     Looking for cover?
                   </h3>
 

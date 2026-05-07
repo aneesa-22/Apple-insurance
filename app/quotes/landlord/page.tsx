@@ -59,8 +59,6 @@ export default function LandlordQuotePage() {
     electricalSafetyCertificate: "",
     previousInsurerName: "",
     renewalDate: "",
-    policyCancelledDeclinedVoided: "",
-    criminalConvictionsOrCcjs: "",
     additionalNotes: "",
   });
 
@@ -308,15 +306,6 @@ export default function LandlordQuotePage() {
       errors.renewalDate = "Please enter a valid renewal date.";
     }
 
-    if (!formData.policyCancelledDeclinedVoided) {
-      errors.policyCancelledDeclinedVoided =
-        "Please tell us if a policy has ever been cancelled, declined or voided.";
-    }
-
-    if (!formData.criminalConvictionsOrCcjs) {
-      errors.criminalConvictionsOrCcjs =
-        "Please tell us if there are any criminal convictions, bankruptcy, or CCJs.";
-    }
 
     setFieldErrors(errors);
     setSubmitError(
@@ -400,7 +389,7 @@ export default function LandlordQuotePage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Landlord Insurance
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Let&apos;s find the right landlord insurance for you
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -448,14 +437,14 @@ export default function LandlordQuotePage() {
                     setSubmitError("");
                     setStep(2);
                   }}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:w-auto sm:text-base"
+                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
                 >
                   Next
                 </button>
               </YourDetailsStep>
             ) : step === 2 ? (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Property details
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -465,7 +454,7 @@ export default function LandlordQuotePage() {
 
                 <div className="mt-8 grid gap-5 sm:gap-6">
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Any property claims in the last 5 years?
                     </label>
 
@@ -483,7 +472,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.hadClaimsLastFiveYears === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -496,7 +485,7 @@ export default function LandlordQuotePage() {
                       <div className="mt-5">
                         <label
                           htmlFor="claimCount"
-                          className="mb-2 block text-sm font-semibold text-[#081225]"
+                          className="mb-2 block text-sm font-semibold text-[#10203d]"
                         >
                           How many claims?
                         </label>
@@ -519,7 +508,7 @@ export default function LandlordQuotePage() {
                   <div>
                     <label
                       htmlFor="propertyAddress"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Property address
                     </label>
@@ -537,7 +526,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Property type
                     </label>
                     <div className="grid gap-3 sm:grid-cols-3">
@@ -549,7 +538,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.propertyType === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -563,7 +552,7 @@ export default function LandlordQuotePage() {
                     <div>
                       <label
                         htmlFor="bedroomCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Bedrooms
                       </label>
@@ -584,7 +573,7 @@ export default function LandlordQuotePage() {
                     <div>
                       <label
                         htmlFor="yearBuilt"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Year built
                       </label>
@@ -601,7 +590,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Is the property standard construction?
                     </label>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -615,7 +604,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.standardConstruction === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -626,7 +615,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Has the property ever flooded?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -638,7 +627,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.floodingHistory === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -649,7 +638,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Has the property had subsidence?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -663,7 +652,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.subsidenceHistory === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -674,7 +663,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Any structural movement or issues?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -688,7 +677,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.structuralMovementHistory === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -699,7 +688,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Who lives in the property?
                     </label>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -717,7 +706,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.tenantType === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -731,7 +720,7 @@ export default function LandlordQuotePage() {
                     <div>
                       <label
                         htmlFor="tenantCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Number of tenants
                       </label>
@@ -748,7 +737,7 @@ export default function LandlordQuotePage() {
                     </div>
 
                     <div>
-                      <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                         Do you have a tenancy agreement (AST)?
                       </p>
                       <div className="grid gap-3 sm:grid-cols-2">
@@ -762,7 +751,7 @@ export default function LandlordQuotePage() {
                             className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                               formData.writtenTenancyAgreement === option
                                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                             }`}
                           >
                             {option}
@@ -774,7 +763,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Is this a long-term let?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -786,7 +775,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.longTermLet === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -797,7 +786,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Is the property an HMO? (House in multiple occupation)
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -809,7 +798,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.isHmo === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -820,7 +809,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Is the property used for business purposes?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -832,7 +821,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.businessUse === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -843,7 +832,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Will the property be empty for more than 30 days?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -857,7 +846,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.emptyMoreThanThirtyDays === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -872,7 +861,7 @@ export default function LandlordQuotePage() {
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
                   >
                     Back
                   </button>
@@ -884,7 +873,7 @@ export default function LandlordQuotePage() {
                       setSubmitError("");
                       setStep(3);
                     }}
-                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:text-base"
+                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
                   >
                     Next
                   </button>
@@ -892,7 +881,7 @@ export default function LandlordQuotePage() {
               </section>
             ) : (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Cover and insurance
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -901,7 +890,7 @@ export default function LandlordQuotePage() {
 
                 <div className="mt-8 grid gap-5 sm:gap-6">
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Buildings cover
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -913,7 +902,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.buildingsCover === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -924,7 +913,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Contents cover (if the property is furnished)
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -936,7 +925,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.contentsCover === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -947,7 +936,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Loss of rent cover
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -959,7 +948,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.lossOfRentCover === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -970,7 +959,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Property owners’ liability
                     </p>
                     <div className="grid gap-3 sm:grid-cols-3">
@@ -984,7 +973,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.propertyOwnersLiability === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -995,7 +984,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Accidental damage
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -1007,7 +996,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.accidentalDamage === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1018,7 +1007,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Is there a mortgage on the property?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -1036,7 +1025,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.hasMortgage === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1051,7 +1040,7 @@ export default function LandlordQuotePage() {
                       <div>
                         <label
                           htmlFor="lenderName"
-                          className="mb-2 block text-sm font-semibold text-[#081225]"
+                          className="mb-2 block text-sm font-semibold text-[#10203d]"
                         >
                           Lender name
                         </label>
@@ -1067,7 +1056,7 @@ export default function LandlordQuotePage() {
                       </div>
 
                       <div>
-                        <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                        <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                           Buy-to-let mortgage?
                         </p>
                         <div className="grid gap-3 sm:grid-cols-2">
@@ -1081,7 +1070,7 @@ export default function LandlordQuotePage() {
                               className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                                 formData.buyToLetMortgage === option
                                   ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                  : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                               }`}
                             >
                               {option}
@@ -1094,7 +1083,7 @@ export default function LandlordQuotePage() {
                   )}
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Are there smoke alarms installed?
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -1106,7 +1095,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.smokeAlarms === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1117,7 +1106,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Gas safety certificate (if applicable)
                     </p>
                     <div className="grid gap-3 sm:grid-cols-3">
@@ -1131,7 +1120,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.gasSafetyCertificate === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1142,7 +1131,7 @@ export default function LandlordQuotePage() {
                   </div>
 
                   <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <p className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Electrical safety certificate (EICR)
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -1156,7 +1145,7 @@ export default function LandlordQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.electricalSafetyCertificate === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1170,7 +1159,7 @@ export default function LandlordQuotePage() {
                     <div>
                       <label
                         htmlFor="previousInsurerName"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Previous insurer
                       </label>
@@ -1190,7 +1179,7 @@ export default function LandlordQuotePage() {
                     <div>
                       <label
                         htmlFor="renewalDate"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Renewal date
                       </label>
@@ -1205,61 +1194,11 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                     </div>
                   </div>
 
-                  <div>
-                    <p className="mb-2 block text-sm font-semibold text-[#081225]">
-                      Has a policy ever been cancelled, declined or voided?
-                    </p>
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {["Yes", "No"].map((option) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() =>
-                            updateField("policyCancelledDeclinedVoided", option)
-                          }
-                          className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.policyCancelledDeclinedVoided === option
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="policyCancelledDeclinedVoided" />
-                  </div>
-
-                  <div>
-                    <label className="mb-3 block text-sm font-semibold text-[#081225]">
-                      Any criminal convictions, bankruptcy, or CCJs?
-                    </label>
-
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {["Yes", "No"].map((option) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() =>
-                            updateField("criminalConvictionsOrCcjs", option)
-                          }
-                          className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                            formData.criminalConvictionsOrCcjs === option
-                              ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <FieldError field="criminalConvictionsOrCcjs" />
-                  </div>
-
+                 
                   <div>
                     <label
                       htmlFor="additionalNotes"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Anything else we should know?{" "}
                       <span className="font-normal text-zinc-500">
@@ -1279,7 +1218,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   </div>
 
                   <div>
-                    <p className="mb-3 text-sm font-semibold text-[#081225]">
+                    <p className="mb-3 text-sm font-semibold text-[#10203d]">
                       Verification
                     </p>
   <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
@@ -1314,7 +1253,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       <button
                         type="button"
                         onClick={() => setStep(2)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
                       >
                         Back
                       </button>
@@ -1323,7 +1262,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                       >
                         {isSubmitting ? "Submitting..." : "Submit enquiry"}
                       </button>
@@ -1348,7 +1287,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 1 ? (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you begin
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1356,7 +1295,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   can provide an accurate quote.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   What happens next
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1371,7 +1310,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to us?
                     </h3>
                   </div>
@@ -1384,7 +1323,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </aside>
             ) : step === 2 ? (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Property details
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1392,7 +1331,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   before we call you.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Why we need this information
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1400,7 +1339,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   can affect the cover available and how we review your enquiry.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Not sure about everything?
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1410,7 +1349,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </aside>
             ) : (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Cover and insurance
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1418,7 +1357,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   current insurance.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Why we ask for this
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1433,7 +1372,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>

@@ -7,7 +7,7 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export default function QuoteFooter() {
-  return (<footer className="bg-[#081225] px-5 py-14 sm:px-8 sm:py-16 lg:px-16">
+  return (<footer className="bg-[#10203d] px-5 py-14 sm:px-8 sm:py-16 lg:px-16">
         <div className="mx-auto w-full max-w-5xl">
           <div className="grid gap-12 border-b border-white/10 pb-10 md:grid-cols-[1.2fr_1fr_1fr_0.8fr]">
             <div>
@@ -16,24 +16,25 @@ export default function QuoteFooter() {
                   src="/icons/logo.png"
                   alt=""
                   aria-hidden="true"
-                  className="absolute -left-3 -top-16 h-34 w-34 object-contain opacity-80 sm:-left-4 sm:-top-14 sm:h-30 sm:w-30"
+                  className="absolute -left-2 -top-16 h-32 w-32 object-contain opacity-80 sm:-left-4 sm:-top-16 sm:h-34 sm:w-34"
                 />
+<div className="relative z-10 pl-5 sm:pl-8">
+  <p
+    className={`${libreBaskerville.className} text-[9px] font-bold leading-[1] tracking-tight text-white sm:text-[16px] sm:leading-[0.95]`}
+  >
+    Apple
+  </p>
 
-                <div className="relative z-10 pl-5 sm:pl-8">
-                  <p
-                    className={`${libreBaskerville.className} text-[12px] font-bold leading-[0.95] tracking-tight text-white sm:text-[18px]`}
-                  >
-                    Apple
-                  </p>
-                  <p
-                    className={`${libreBaskerville.className} -mt-0.5 text-[12px] font-bold leading-[0.95] tracking-tight text-white sm:text-[18px]`}
-                  >
-                    Insurance
-                  </p>
-                  <p className="mt-0.5 pl-[1px] text-[6px] font-medium uppercase tracking-[0.26em] text-[#c75a5a] sm:mt-1 sm:text-[7px]">
-                    Services
-                  </p>
-                </div>
+  <p
+    className={`${libreBaskerville.className} mt-0 text-[9px] font-bold leading-[1] tracking-tight text-white sm:-mt-0.5 sm:text-[16px] sm:leading-[0.95]`}
+  >
+    Insurance
+  </p>
+
+  <p className="mt-[1px] text-[4px] font-bold uppercase tracking-[0.06em] text-[#9f1d1d] sm:mt-1 sm:text-[7px] sm:tracking-[0.12em]">
+    Services
+  </p>
+</div>
               </Link>
 
               <p className="mt-5 max-w-[23ch] text-sm leading-7 text-zinc-400">

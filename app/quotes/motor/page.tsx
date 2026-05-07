@@ -59,10 +59,6 @@ export default function MotorTradeQuotePage() {
     licencePointsDetails: "",
     accidentsOrClaims: "",
     claimsDetails: "",
-    insuranceCancelledDeclined: "",
-    insuranceIssuesDetails: "",
-    criminalConvictionsOrCcjs: "",
-    disclosureDetails: "",
     startDate: "",
     additionalNotes: "",
   });
@@ -321,32 +317,7 @@ export default function MotorTradeQuotePage() {
     if (formData.accidentsOrClaims === "Yes" && !formData.claimsDetails.trim()) {
       errors.claimsDetails = "Please provide the claims details.";
     }
-
-    if (!formData.insuranceCancelledDeclined) {
-      errors.insuranceCancelledDeclined =
-        "Please tell us about any cancelled, declined, or refused insurance.";
-    }
-
-    if (
-      formData.insuranceCancelledDeclined === "Yes" &&
-      !formData.insuranceIssuesDetails.trim()
-    ) {
-      errors.insuranceIssuesDetails =
-        "Please provide the insurance history details.";
-    }
-
-    if (!formData.criminalConvictionsOrCcjs) {
-      errors.criminalConvictionsOrCcjs =
-        "Please tell us about any criminal convictions, bankruptcy, or CCJs.";
-    }
-
-    if (
-      formData.criminalConvictionsOrCcjs === "Yes" &&
-      !formData.disclosureDetails.trim()
-    ) {
-      errors.disclosureDetails = "Please provide the disclosure details.";
-    }
-
+    
     if (!formData.startDate) {
       errors.startDate = "Please enter the required start date.";
     } else if (!isFutureOrToday(formData.startDate)) {
@@ -439,7 +410,7 @@ export default function MotorTradeQuotePage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Motor Trade Insurance
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Let&apos;s find the right motor trade insurance for you
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -492,7 +463,7 @@ export default function MotorTradeQuotePage() {
                     setSubmitError("");
                     setStep(2);
                   }}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:w-auto sm:text-base"
+                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
                 >
                   Next
                 </button>
@@ -501,7 +472,7 @@ export default function MotorTradeQuotePage() {
 
             {step === 2 && (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Business details
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -511,7 +482,7 @@ export default function MotorTradeQuotePage() {
                 <div className="mt-8 grid gap-5 sm:gap-6">
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                         What type of business are you?
                       </label>
                       <div className="grid gap-3">
@@ -524,7 +495,7 @@ export default function MotorTradeQuotePage() {
                               className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                                 formData.businessStructure === option
                                   ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                  : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                               }`}
                             >
                               {option}
@@ -536,7 +507,7 @@ export default function MotorTradeQuotePage() {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                         Do you work full-time or part-time?
                       </label>
                       <div className="grid gap-3">
@@ -553,7 +524,7 @@ export default function MotorTradeQuotePage() {
                             className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                               formData.tradingBasis === option
                                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                             }`}
                           >
                             {option}
@@ -568,7 +539,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="occupation"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                        What is your main occupation?
                       </label>
@@ -587,7 +558,7 @@ export default function MotorTradeQuotePage() {
                   <div>
                     <label
                       htmlFor="businessName"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       What is your business name?
                     </label>
@@ -605,7 +576,7 @@ export default function MotorTradeQuotePage() {
                   <div>
                     <label
                       htmlFor="businessAddress"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       What is your business address?
                     </label>
@@ -621,7 +592,7 @@ export default function MotorTradeQuotePage() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       What type of work do you do?
                     </label>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -648,7 +619,7 @@ export default function MotorTradeQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                             formData.businessType === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -662,7 +633,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="otherBusinessType"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Other business type
                       </label>
@@ -682,7 +653,7 @@ export default function MotorTradeQuotePage() {
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                         Is your business run from your home address?
                       </label>
                       <div className="grid gap-3">
@@ -694,7 +665,7 @@ export default function MotorTradeQuotePage() {
                             className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                               formData.runFromHome === option
                                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                             }`}
                           >
                             {option}
@@ -707,7 +678,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="annualTurnover"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         What is your estimated annual turnover (£)?
                       </label>
@@ -725,7 +696,7 @@ export default function MotorTradeQuotePage() {
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                         Do you have any apprentices?
                       </label>
                       <div className="grid gap-3">
@@ -737,7 +708,7 @@ export default function MotorTradeQuotePage() {
                             className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                               formData.apprentices === option
                                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                             }`}
                           >
                             {option}
@@ -750,7 +721,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="numberOfEmployees"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         How many employees do you have?
                       </label>
@@ -780,7 +751,7 @@ export default function MotorTradeQuotePage() {
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
                     >
                       Back
                     </button>
@@ -792,7 +763,7 @@ export default function MotorTradeQuotePage() {
                         setSubmitError("");
                         setStep(3);
                       }}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:text-base"
+                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
                     >
                       Next
                     </button>
@@ -803,7 +774,7 @@ export default function MotorTradeQuotePage() {
 
             {step === 3 && (
   <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-    <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+    <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
       Cover and vehicles
     </h2>
     <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -812,7 +783,7 @@ export default function MotorTradeQuotePage() {
 
     <div className="mt-8 grid gap-5 sm:gap-6">
       <div>
-        <label className="mb-2 block text-sm font-semibold text-[#081225]">
+        <label className="mb-2 block text-sm font-semibold text-[#10203d]">
           What level of cover do you need?
         </label>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -828,7 +799,7 @@ export default function MotorTradeQuotePage() {
               className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                 formData.coverLevel === option
                   ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                  : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
               }`}
             >
               {option}
@@ -859,7 +830,7 @@ export default function MotorTradeQuotePage() {
     ],
   ].map(([field, label]) => (
     <div key={field}>
-      <label className="mb-2 block text-sm font-semibold leading-6 text-[#081225]">
+      <label className="mb-2 block text-sm font-semibold leading-6 text-[#10203d]">
         {label}
       </label>
       <div className="grid grid-cols-2 gap-3 sm:max-w-[340px]">
@@ -871,7 +842,7 @@ export default function MotorTradeQuotePage() {
             className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
               formData[field as keyof typeof formData] === option
                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
             }`}
           >
             {option}
@@ -889,7 +860,7 @@ export default function MotorTradeQuotePage() {
         <div>
           <label
   htmlFor="maxVehicleValue"
-  className="mb-2 block pt-6 text-sm font-semibold text-[#081225]"
+  className="mb-2 block pt-6 text-sm font-semibold text-[#10203d]"
 >
   Maximum value of a vehicle (£)
 </label>
@@ -908,7 +879,7 @@ export default function MotorTradeQuotePage() {
         <div>
           <label
             htmlFor="maxVehicleCount"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             Maximum number of vehicles you will have at one time
           </label>
@@ -925,7 +896,7 @@ export default function MotorTradeQuotePage() {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-semibold text-[#081225]">
+        <label className="mb-2 block text-sm font-semibold text-[#10203d]">
           What types of vehicles do you need cover for?
         </label>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -943,7 +914,7 @@ export default function MotorTradeQuotePage() {
               className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                 formData.vehicleTypes.includes(type)
                   ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                  : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
               }`}
             >
               {type}
@@ -957,7 +928,7 @@ export default function MotorTradeQuotePage() {
         <div>
           <label
             htmlFor="highPerformanceVehicles"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             Do you work with any high-performance vehicles?
           </label>
@@ -977,7 +948,7 @@ export default function MotorTradeQuotePage() {
         <div>
           <label
   htmlFor="overnightLocation"
-  className="mb-2 block pt-5 text-sm font-semibold text-[#081225]"
+  className="mb-2 block pt-5 text-sm font-semibold text-[#10203d]"
 >
   Where are vehicles kept overnight?
 </label>
@@ -1004,7 +975,7 @@ export default function MotorTradeQuotePage() {
         <button
           type="button"
           onClick={() => setStep(2)}
-          className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+          className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
         >
           Back
         </button>
@@ -1016,7 +987,7 @@ export default function MotorTradeQuotePage() {
             setSubmitError("");
             setStep(4);
           }}
-          className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:text-base"
+          className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
         >
           Next
         </button>
@@ -1028,7 +999,7 @@ export default function MotorTradeQuotePage() {
 
             {step === 4 && (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Drivers and history
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1038,7 +1009,7 @@ export default function MotorTradeQuotePage() {
 
                 <div className="mt-8 grid gap-5 sm:gap-6">
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       What is the age of the youngest driver?
                     </label>
                     <div className="grid gap-3 sm:grid-cols-3">
@@ -1050,7 +1021,7 @@ export default function MotorTradeQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                             formData.youngestDriverAge === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -1072,7 +1043,7 @@ export default function MotorTradeQuotePage() {
                       ],
                     ].map(([field, label]) => (
                       <div key={field}>
-                        <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                        <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                           {label}
                         </label>
                         <div className="grid gap-3">
@@ -1098,7 +1069,7 @@ export default function MotorTradeQuotePage() {
                               className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
                                 formData[field as keyof typeof formData] === option
                                   ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                  : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                               }`}
                             >
                               {option}
@@ -1114,7 +1085,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="licencePointsDetails"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Points / conviction details
                       </label>
@@ -1136,7 +1107,7 @@ export default function MotorTradeQuotePage() {
                     <div>
                       <label
                         htmlFor="claimsDetails"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Claims details
                       </label>
@@ -1152,104 +1123,10 @@ export default function MotorTradeQuotePage() {
                     </div>
                   )}
 
-                  <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-                    {[
-                      [
-                        "insuranceCancelledDeclined",
-                        "Any insurance cancelled, declined, or refused?",
-                      ],
-                      [
-                        "criminalConvictionsOrCcjs",
-                        "Any criminal convictions, bankruptcy, or CCJs?",
-                      ],
-                    ].map(([field, label]) => (
-                      <div key={field}>
-                        <label className="mb-2 block text-sm font-semibold text-[#081225]">
-                          {label}
-                        </label>
-                        <div className="grid gap-3">
-                          {["Yes", "No"].map((option) => (
-                            <button
-                              key={option}
-                              type="button"
-                              onClick={() => {
-                                updateField(field as FormField, option);
-                                if (
-                                  field === "insuranceCancelledDeclined" &&
-                                  option === "No"
-                                ) {
-                                  updateField("insuranceIssuesDetails", "");
-                                }
-                                if (
-                                  field === "criminalConvictionsOrCcjs" &&
-                                  option === "No"
-                                ) {
-                                  updateField("disclosureDetails", "");
-                                }
-                              }}
-                              className={`rounded-2xl border px-4 py-3 text-left text-[15px] font-medium transition-colors sm:text-base ${
-                                formData[field as keyof typeof formData] === option
-                                  ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                  : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                              }`}
-                            >
-                              {option}
-                            </button>
-                          ))}
-                        </div>
-                        <FieldError field={field as FormField} />
-                      </div>
-                    ))}
-                  </div>
-
-                  {formData.insuranceCancelledDeclined === "Yes" && (
-                    <div>
-                      <label
-                        htmlFor="insuranceIssuesDetails"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
-                      >
-                        Insurance history details
-                      </label>
-                      <textarea
-                        id="insuranceIssuesDetails"
-                        rows={4}
-                        placeholder="Add details here"
-                        value={formData.insuranceIssuesDetails}
-                        onChange={(e) =>
-                          updateField("insuranceIssuesDetails", e.target.value)
-                        }
-                        className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
-                      />
-                      <FieldError field="insuranceIssuesDetails" />
-                    </div>
-                  )}
-
-                  {formData.criminalConvictionsOrCcjs === "Yes" && (
-                    <div>
-                      <label
-                        htmlFor="disclosureDetails"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
-                      >
-                        Disclosure details
-                      </label>
-                      <textarea
-                        id="disclosureDetails"
-                        rows={4}
-                        placeholder="Add details here"
-                        value={formData.disclosureDetails}
-                        onChange={(e) =>
-                          updateField("disclosureDetails", e.target.value)
-                        }
-                        className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
-                      />
-                      <FieldError field="disclosureDetails" />
-                    </div>
-                  )}
-
                   <div>
                     <label
                       htmlFor="startDate"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Required start date
                     </label>
@@ -1266,7 +1143,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   <div>
                     <label
                       htmlFor="additionalNotes"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Anything else we should know?{" "}
                       <span className="font-normal text-zinc-500">(Optional)</span>
@@ -1284,7 +1161,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   </div>
 
                   <div>
-                    <p className="mb-3 text-sm font-semibold text-[#081225]">
+                    <p className="mb-3 text-sm font-semibold text-[#10203d]">
                       Verification
                     </p>
   <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-[0_4px_14px_rgba(8,18,37,0.04)]">
@@ -1319,7 +1196,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       <button
                         type="button"
                         onClick={() => setStep(3)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
                       >
                         Back
                       </button>
@@ -1328,7 +1205,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                       >
                         {isSubmitting ? "Submitting..." : "Submit enquiry"}
                       </button>
@@ -1353,7 +1230,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 1 && (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you begin
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1361,7 +1238,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   can provide an accurate quote.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   What happens next
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1376,7 +1253,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>
@@ -1391,7 +1268,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 2 && (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Business details
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1399,7 +1276,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   motor trade work you carry out.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Keep it simple
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1410,7 +1287,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
                 <div className="mt-6 sm:mt-8">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Not sure about everything?
                     </h3>
                   </div>
@@ -1425,7 +1302,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 3 && (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Cover and vehicles
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1433,7 +1310,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   types of vehicles involved in the business.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Why we ask this
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1443,7 +1320,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
                 <div className="mt-6 sm:mt-8">
                   <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Not sure about everything?
                     </h3>
                   </div>
@@ -1458,7 +1335,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
 
             {step === 4 && (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Drivers and history
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1466,7 +1343,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                   disclosures, and when you need cover to start.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Be as accurate as you can
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -1481,7 +1358,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>

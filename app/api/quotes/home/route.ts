@@ -64,8 +64,6 @@ type HomeQuotePayload = {
   sumInsured?: string;
   hadClaims?: string;
   claimCount?: string;
-  policyCancelledDeclinedVoided?: string;
-  criminalConvictionsOrCcjs?: string;
   additionalNotes?: string;
 };
 
@@ -346,17 +344,6 @@ function validatePayload(data: HomeQuotePayload) {
       errors.claimCount = "Please enter a valid number of claims.";
     }
   }
-
-  if (!allowedYesNo.includes(data.policyCancelledDeclinedVoided || "")) {
-    errors.policyCancelledDeclinedVoided =
-      "Please tell us if a policy has ever been cancelled, declined, or voided.";
-  }
-
-  if (!allowedYesNo.includes(data.criminalConvictionsOrCcjs || "")) {
-    errors.criminalConvictionsOrCcjs =
-      "Please tell us if you have any criminal convictions, bankruptcy, or CCJs.";
-  }
-
   if (data.additionalNotes && data.additionalNotes.length > 1000) {
     errors.additionalNotes =
       "Additional details must be under 1000 characters.";
@@ -412,14 +399,6 @@ function formatInternalEmailHtml(data: HomeQuotePayload) {
       ${row("Cover amount", data.sumInsured)}
       ${row("Had claims", data.hadClaims)}
       ${row("Claim count", data.claimCount)}
-      ${row(
-        "Policy cancelled / declined / voided",
-        data.policyCancelledDeclinedVoided
-      )}
-      ${row(
-        "Criminal convictions / bankruptcy / CCJs",
-        data.criminalConvictionsOrCcjs
-      )}
       ${row("Additional notes", data.additionalNotes)}
     </div>
   `;
@@ -582,12 +561,6 @@ export async function POST(request: NextRequest) {
     sumInsured: sanitise(rawData.sumInsured, 40),
     hadClaims: sanitise(rawData.hadClaims, 10),
     claimCount: sanitise(rawData.claimCount, 10),
-    policyCancelledDeclinedVoided: sanitise(
-      rawData.policyCancelledDeclinedVoided,
-      10
-    ),
-    criminalConvictionsOrCcjs: sanitise(rawData.criminalConvictionsOrCcjs, 10),
-    additionalNotes: sanitise(rawData.additionalNotes, 1000),
   };
 
   const errors = validatePayload(data);

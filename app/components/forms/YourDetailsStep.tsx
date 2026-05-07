@@ -42,7 +42,7 @@ export default function YourDetailsStep({
   return (
     <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
       <div className="space-y-2">
-        <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+        <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
           Your details
         </h2>
         <p className="text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -55,7 +55,7 @@ export default function YourDetailsStep({
 
       <div className="mt-8 grid gap-5 sm:gap-6">
         <div>
-          <label className="mb-2 block text-sm font-semibold text-[#081225]">
+          <label className="mb-2 block text-sm font-semibold text-[#10203d]">
             Title
           </label>
 
@@ -68,7 +68,7 @@ export default function YourDetailsStep({
                 className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                   formData.title === option
                     ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                    : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                    : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                 }`}
               >
                 {option}
@@ -82,7 +82,7 @@ export default function YourDetailsStep({
           <div>
             <label
               htmlFor="firstName"
-              className="mb-2 block text-sm font-semibold text-[#081225]"
+              className="mb-2 block text-sm font-semibold text-[#10203d]"
             >
               First name
             </label>
@@ -100,7 +100,7 @@ export default function YourDetailsStep({
           <div>
             <label
               htmlFor="lastName"
-              className="mb-2 block text-sm font-semibold text-[#081225]"
+              className="mb-2 block text-sm font-semibold text-[#10203d]"
             >
               Last name
             </label>
@@ -119,7 +119,7 @@ export default function YourDetailsStep({
         <div>
           <label
             htmlFor="phone"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             Phone number (we’ll call you back)
           </label>
@@ -137,7 +137,7 @@ export default function YourDetailsStep({
         <div>
           <label
             htmlFor="email"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             Email address
           </label>
@@ -156,7 +156,7 @@ export default function YourDetailsStep({
           <div>
             <label
               htmlFor="dateOfBirth"
-              className="mb-2 block text-sm font-semibold text-[#081225]"
+              className="mb-2 block text-sm font-semibold text-[#10203d]"
             >
               Date of birth
             </label>
@@ -173,7 +173,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
           <div>
             <label
               htmlFor="maritalStatus"
-              className="mb-2 block text-sm font-semibold text-[#081225]"
+              className="mb-2 block text-sm font-semibold text-[#10203d]"
             >
               Marital status
             </label>
@@ -216,7 +216,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
         <div>
           <label
             htmlFor="addressLine1"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             First line of Address
           </label>
@@ -234,7 +234,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
         <div>
           <label
             htmlFor="postcode"
-            className="mb-2 block text-sm font-semibold text-[#081225]"
+            className="mb-2 block text-sm font-semibold text-[#10203d]"
           >
             Postcode
           </label>

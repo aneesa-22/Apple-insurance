@@ -44,8 +44,6 @@ export default function HomeQuotePage() {
     sumInsured: "",
     hadClaims: "",
     claimCount: "",
-    policyCancelledDeclinedVoided: "",
-    criminalConvictionsOrCcjs: "",
     additionalNotes: "",
   });
 
@@ -178,15 +176,7 @@ export default function HomeQuotePage() {
       }
     }
 
-    if (!formData.policyCancelledDeclinedVoided) {
-      errors.policyCancelledDeclinedVoided =
-        "Please tell us if a policy has ever been cancelled, declined, or voided.";
-    }
 
-    if (!formData.criminalConvictionsOrCcjs) {
-      errors.criminalConvictionsOrCcjs =
-        "Please tell us if you have any criminal convictions, bankruptcy, or CCJs.";
-    }
 
 
 
@@ -264,7 +254,7 @@ export default function HomeQuotePage() {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
               Home Insurance
             </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#081225] sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
               Let&apos;s find the right home insurance for you
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -307,14 +297,14 @@ export default function HomeQuotePage() {
                                     setSubmitError("");
                                     setStep(2);
                                   }}
-                                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] sm:w-auto sm:text-base"
+                                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
                                 >
                                   Next
                                 </button>
                               </YourDetailsStep>
             ) : (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Your property details
                 </h2>
                 <p className="mt-2 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -329,7 +319,8 @@ export default function HomeQuotePage() {
 
                 <div className="mt-8 grid gap-5 sm:gap-6">
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-[#081225]">
+
+                    <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                       Type of property
                     </label>
                     <div className="grid gap-3 sm:grid-cols-2">
@@ -352,7 +343,7 @@ export default function HomeQuotePage() {
                           className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                             formData.propertyType === option
                               ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                              : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                              : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                           }`}
                         >
                           {option}
@@ -360,13 +351,13 @@ export default function HomeQuotePage() {
                       ))}
                     </div>
                   </div>
-
+</div>
                  <div className="grid gap-5 sm:grid-cols-3 sm:gap-6 sm:items-end">
 
                     <div>
                       <label
                         htmlFor="bedroomCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Number of bedrooms
                       </label>
@@ -389,7 +380,7 @@ export default function HomeQuotePage() {
                     <div>
                       <label
                         htmlFor="livingRoomCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                          Number of living rooms
                       </label>
@@ -412,7 +403,7 @@ export default function HomeQuotePage() {
                     <div>
                       <label
                         htmlFor="toiletCount"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Number of bathrooms / WCs
                       </label>
@@ -437,7 +428,7 @@ export default function HomeQuotePage() {
                     <div>
                       <label
                         htmlFor="yearBuilt"
-                        className="mb-2 block text-sm font-semibold text-[#081225]"
+                        className="mb-2 block text-sm font-semibold text-[#10203d]"
                       >
                         Year built
                       </label>
@@ -457,7 +448,7 @@ export default function HomeQuotePage() {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-[#081225]">
+                      <label className="mb-2 block text-sm font-semibold text-[#10203d]">
                        Any flat roof?
                       </label>
                       <div className="grid gap-3 sm:grid-cols-2">
@@ -474,7 +465,7 @@ export default function HomeQuotePage() {
                             className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                               formData.flatRoof === option
                                 ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                             }`}
                           >
                             {option}
@@ -487,7 +478,7 @@ export default function HomeQuotePage() {
                   <div>
                     <label
                       htmlFor="sumInsured"
-                      className="mb-2 block text-sm font-semibold text-[#081225]"
+                      className="mb-2 block text-sm font-semibold text-[#10203d]"
                     >
                       Cover amount (£)
                     </label>
@@ -508,7 +499,7 @@ export default function HomeQuotePage() {
 
                   <div className="space-y-7 sm:space-y-8">
                           <div>
-                            <label className="mb-3 block text-sm font-semibold text-[#081225]">
+                            <label className="mb-3 block text-sm font-semibold text-[#10203d]">
                               Any claims in the last 5 years?
                             </label>
 
@@ -527,7 +518,7 @@ export default function HomeQuotePage() {
                                   className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
                                     formData.hadClaims === option
                                       ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                      : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
+                                      : "border-zinc-200 bg-white text-[#10203d] hover:border-[#7f1d1d]"
                                   }`}
                                 >
                                   {option}
@@ -539,7 +530,7 @@ export default function HomeQuotePage() {
                               <div className="mt-5">
                                 <label
                                   htmlFor="claimCount"
-                                  className="mb-2 block text-sm font-semibold text-[#081225]"
+                                  className="mb-2 block text-sm font-semibold text-[#10203d]"
                                 >
                                   How many claims?
                                 </label>
@@ -561,68 +552,12 @@ export default function HomeQuotePage() {
                             )}
                           </div>
 
-                          <div>
-                            <label className="mb-3 block text-sm font-semibold text-[#081225]">
-                              Has any policy ever been cancelled, declined, or voided?
-                            </label>
-
-                            <div className="grid gap-3 sm:grid-cols-2">
-                              {["Yes", "No"].map((option) => (
-                                <button
-                                  key={option}
-                                  type="button"
-                                  onClick={() =>
-                                    setFormData({
-                                      ...formData,
-                                      policyCancelledDeclinedVoided: option,
-                                    })
-                                  }
-                                  className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                                    formData.policyCancelledDeclinedVoided === option
-                                      ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                      : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                                  }`}
-                                >
-                                  {option}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-
-                          <div>
-                            <label className="mb-3 block text-sm font-semibold text-[#081225]">
-                              Any criminal convictions, bankruptcy, or CCJs?
-                            </label>
-
-                              <div className="grid gap-3 sm:grid-cols-2">
-                                {["Yes", "No"].map((option) => (
-                                  <button
-                                    key={option}
-                                    type="button"
-                                    onClick={() =>
-                                      setFormData({
-                                        ...formData,
-                                        criminalConvictionsOrCcjs: option,
-                                      })
-                                    }
-                                    className={`rounded-2xl border px-4 py-3 text-[15px] font-medium transition-colors sm:text-base ${
-                                      formData.criminalConvictionsOrCcjs === option
-                                        ? "border-[#7f1d1d] bg-[#f8e8e8] text-[#7f1d1d]"
-                                        : "border-zinc-200 bg-white text-[#081225] hover:border-[#7f1d1d]"
-                                    }`}
-                                  >
-                                    {option}
-                                  </button>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
                           </div>
 
                 <div className="mt-6">
                   <label
                     htmlFor="additionalNotes"
-                    className="mb-2 block text-sm font-semibold text-[#081225]"
+                    className="mb-2 block text-sm font-semibold text-[#10203d]"
                   >
                     Additional details{" "}
                     <span className="font-normal text-zinc-500">(Optional)</span>
@@ -643,7 +578,7 @@ export default function HomeQuotePage() {
                 </div>
 
                       <div className="mt-6">
-                          <p className="mb-3 text-sm font-semibold text-[#081225]">
+                          <p className="mb-3 text-sm font-semibold text-[#10203d]">
                             Verification
                           </p>
 
@@ -687,7 +622,7 @@ export default function HomeQuotePage() {
                       <button
                         type="button"
                         onClick={() => setStep(1)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#081225] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
                       >
                         Back
                       </button>
@@ -696,7 +631,7 @@ export default function HomeQuotePage() {
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#081225] bg-[#081225] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#13203a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
                       >
                         {isSubmitting ? "Submitting..." : "Submit enquiry"}
                       </button>
@@ -721,14 +656,14 @@ export default function HomeQuotePage() {
 
             {step === 1 ? (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you begin
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
                   Please complete the form with as much detail as possible so we can provide an accurate quote.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   What happens next
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -742,7 +677,7 @@ export default function HomeQuotePage() {
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>
@@ -755,14 +690,14 @@ export default function HomeQuotePage() {
               </aside>
             ) : (
               <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#081225] sm:text-2xl">
+                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
                   Before you submit
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
                   These details help us understand your property and the cover you need.
                 </p>
 
-                <h3 className="mt-6 text-lg font-semibold text-[#081225] sm:mt-8">
+                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
                   Why we need this information
                 </h3>
                 <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
@@ -776,7 +711,7 @@ export default function HomeQuotePage() {
                       alt="Phone icon"
                       className="h-5 w-5 object-contain"
                     />
-                    <h3 className="text-lg font-semibold text-[#081225]">
+                    <h3 className="text-lg font-semibold text-[#10203d]">
                       Prefer to speak to someone directly?
                     </h3>
                   </div>
