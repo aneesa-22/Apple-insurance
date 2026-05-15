@@ -38,7 +38,7 @@ export default function  Header({ activePage }: PageHeaderProps) {
 
   return (
     <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)]">
-<div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
+<div className="flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
         <div className="flex items-start justify-between gap-4 sm:gap-6">
           <Link href="/" className="relative shrink-0">
     <img
