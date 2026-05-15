@@ -45,7 +45,7 @@ export default function Home() {
     Insurance
   </p>
 
-  <p className="-mt-[1px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
+  <p className="mt-[2px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
     Services
   </p>
 </div>
