@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
 <section className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-5 py-12 sm:min-h-[78vh] sm:px-8 sm:py-20 lg:min-h-[68vh] lg:px-16 lg:py-24">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:gap-10">
+        <div className="flex w-full max-w-5xl flex-col gap-8 sm:gap-10">
           <header className="mb-10 flex flex-col gap-5 sm:mb-16 sm:gap-6 lg:mb-24">
             <div className="flex items-start justify-between gap-4 sm:gap-6">
   <Link href="/" className="relative shrink-0">
@@ -182,7 +182,9 @@ export default function Home() {
             <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-5xl">
               Cover you can trust.
               <br />
-              People you can rely on.
+              People you can{" "}
+              <span style={{ textDecoration: "underline", textDecorationColor: "#9f1d1d", textDecorationThickness: "3px", textUnderlineOffset: "6px" }}>rely</span>
+              {" "}on.
             </h1>
 
             <div className="max-w-2xl space-y-3">
@@ -204,7 +206,7 @@ export default function Home() {
 
             <div className="mt-1 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
               <Link
-                className="inline-flex h-14 w-full min-w-0 items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-[17px] font-bold text-[#10203d] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white sm:min-w-[230px]"
+                className="inline-flex h-14 w-full min-w-0 items-center justify-center gap-3 rounded-2xl border border-[#7f1d1d] bg-white px-7 text-[17px] font-bold text-[#10203d] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white sm:min-w-[230px]"
                 href="/#find-cover"
                 onClick={(e) => {
                   const isHomePage = window.location.pathname === "/";
@@ -218,13 +220,15 @@ export default function Home() {
                 }}
               >
                 Get a quote
+                <span className="text-[#9f1d1d]">→</span>
               </Link>
 
               <a
-                className="inline-flex h-14 w-full min-w-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-7 text-[17px] font-bold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d] sm:min-w-[230px]"
+                className="inline-flex h-14 w-full min-w-0 items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-7 text-[17px] font-bold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d] sm:min-w-[230px]"
                 href="tel:01618812139"
               >
                 Speak to our team
+                <span className="text-[#9f1d1d]">→</span>
               </a>
             </div>
           </div>
@@ -708,7 +712,7 @@ export default function Home() {
 
                                 <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
                                   <Link
-                                    className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
+                                    className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
                                     href="/#find-cover"
                                     onClick={(e) => {
                                       const isHomePage = window.location.pathname === "/";
@@ -722,13 +726,15 @@ export default function Home() {
                                     }}
                                   >
                                     Get a quote
+                                    <span className="text-[#9f1d1d]">→</span>
                                   </Link>
 
                                   <a
-                                    className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 text-base font-semibold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d]"
+                                    className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-7 text-base font-semibold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d]"
                                     href="tel:01618812139"
                                   >
-                                    Call our team
+                                    Speak to our team
+                                    <span className="text-[#9f1d1d]">→</span>
                                   </a>
                                 </div>
                               </div>

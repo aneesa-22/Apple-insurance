@@ -214,7 +214,7 @@ While the range of cover has expanded, the focus has remained the same: clear ad
 
             <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
               <Link
-                className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
+                className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
                 href="/#find-cover"
                 onClick={(e) => {
                   const isHomePage = window.location.pathname === "/";
@@ -228,13 +228,15 @@ While the range of cover has expanded, the focus has remained the same: clear ad
                 }}
               >
                 Get a quote
+                <span className="text-[#9f1d1d]">→</span>
               </Link>
 
               <a
-                className="inline-flex h-14 min-w-[230px] items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 text-base font-semibold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d]"
+                className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-7 text-base font-semibold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d]"
                 href="tel:01618812139"
               >
-                Call our team
+                Speak to our team
+                <span className="text-[#9f1d1d]">→</span>
               </a>
             </div>
           </div>

@@ -2,15 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Libre_Baskerville, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import PageFooter from "../components/site/PageFooter";
+import PageHeader from "../components/site/PageHeader";
 import BackToHomeLink from "../components/site/BackToHomeLink";
 import TurnstileWidget from "../components/forms/TurnstileWidget";
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -30,7 +26,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
 
   const handleSubmit = async () => {
@@ -82,158 +77,7 @@ export default function ContactPage() {
 
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)]">
-<div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
-          <div className="flex items-start justify-between gap-4 sm:gap-6">
-            <Link href="/" className="relative shrink-0">
-    <img
-      src="/icons/logo.png"
-      alt=""
-      aria-hidden="true"
-      className="absolute -left-4 -top-19 h-40 w-40 object-contain opacity-80 sm:-left-10 sm:-top-30 sm:h-65 sm:w-65"
-    />
-
-    <div className="relative z-10 pl-10 sm:pl-16">
-  <p
-    className={`${libreBaskerville.className} text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:text-[36px]`}
-  >
-    Apple
-  </p>
-
-  <p
-    className={`${libreBaskerville.className} -mt-[2px] text-[18px] font-bold leading-[0.95] tracking-tight text-white sm:-mt-1 sm:text-[36px]`}
-  >
-    Insurance
-  </p>
-
-  <p className="-mt-[1px] text-[8px] font-bold uppercase tracking-[0.08em] text-[#9f1d1d] sm:mt-1 sm:text-[15px] sm:tracking-[0.12em]">
-    Services
-  </p>
-</div>
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-2xl text-white transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] active:border-[#7f1d1d] active:text-[#7f1d1d] lg:hidden"
-              aria-label="Toggle menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? "×" : "☰"}
-            </button>
-
-            <nav className="hidden flex-1 items-center justify-end gap-10 pt-2 text-[17px] text-zinc-300 lg:flex lg:text-[19px]">
-              <Link
-                href="/quotes/taxi"
-                className="group relative whitespace-nowrap font-medium text-white transition-colors duration-200"
-              >
-                <span>Taxi</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 group-hover:w-full" />
-              </Link>
-
-              <Link
-                href="/quotes/home"
-                className="group relative whitespace-nowrap font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
-              >
-                <span>Home</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 group-hover:w-full" />
-              </Link>
-
-              <Link
-                href="/quotes/landlord"
-                className="group relative whitespace-nowrap font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
-              >
-                <span>Landlord</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 group-hover:w-full" />
-              </Link>
-
-              <Link
-                href="/quotes/motor"
-                className="group relative whitespace-nowrap font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
-              >
-                <span>Motor</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 group-hover:w-full" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="group relative whitespace-nowrap font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
-              >
-                <span>About Us</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-0 -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 group-hover:w-full" />
-              </Link>
-
-              <Link
-                href="/contact"
-                className="group relative whitespace-nowrap font-medium text-zinc-300 transition-colors duration-200 hover:text-white"
-              >
-                <span>Contact</span>
-                <span className="absolute left-1/2 top-full mt-2 h-[3px] w-full -translate-x-1/2 rounded-full bg-[#7f1d1d]" />
-              </Link>
-            </nav>
-          </div>
-
-          {mobileMenuOpen && (
-            <nav className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-5 text-[17px] text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] lg:hidden">
-              <Link
-                href="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Homepage
-              </Link>
-
-              <Link
-                href="/quotes/taxi"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium text-white transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Taxi
-              </Link>
-
-              <Link
-                href="/quotes/home"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Home
-              </Link>
-
-              <Link
-                href="/quotes/landlord"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Landlord
-              </Link>
-
-              <Link
-                href="/quotes/motor"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Motor
-              </Link>
-
-              <Link
-                href="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-white/10 py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                About Us
-              </Link>
-
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-3 font-medium transition-colors hover:text-[#7f1d1d] active:text-[#7f1d1d]"
-              >
-                Contact
-              </Link>
-            </nav>
-          )}
-        </div>
-      </header>
+      <PageHeader activePage="contact" />
 
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div className="mx-auto w-full max-w-6xl">
