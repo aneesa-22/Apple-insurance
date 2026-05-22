@@ -1,17 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Libre_Baskerville, Instrument_Sans } from "next/font/google";
-import { useEffect, useRef, useState } from "react";
+import { Instrument_Sans } from "next/font/google";
 import PageFooter from "../components/site/PageFooter";
 import PageHeader from "../components/site/PageHeader";
 import BackToHomeLink from "../components/site/BackToHomeLink";
 
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -19,7 +13,6 @@ const instrumentSans = Instrument_Sans({
 });
 
 export default function PrivacyNoticePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
       <PageHeader />

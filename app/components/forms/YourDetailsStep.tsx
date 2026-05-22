@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { FieldErrorMessage } from "./FormFeedback";
 
 export type YourDetailsFormData = {
   title: string;
@@ -29,16 +30,6 @@ export default function YourDetailsStep({
   fieldErrors = {},
   children,
 }: YourDetailsStepProps) {
-  const FieldError = ({ field }: { field: YourDetailsField }) => {
-    if (!fieldErrors[field]) return null;
-
-    return (
-      <p className="mt-2 text-sm font-medium text-[#7f1d1d]">
-        {fieldErrors[field]}
-      </p>
-    );
-  };
-
   return (
     <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
       <div className="space-y-2">
@@ -75,7 +66,7 @@ export default function YourDetailsStep({
               </button>
             ))}
           </div>
-          <FieldError field="title" />
+          <FieldErrorMessage message={fieldErrors.title} />
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -94,7 +85,7 @@ export default function YourDetailsStep({
               onChange={(e) => updateField("firstName", e.target.value)}
               className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
             />
-            <FieldError field="firstName" />
+            <FieldErrorMessage message={fieldErrors.firstName} />
           </div>
 
           <div>
@@ -112,7 +103,7 @@ export default function YourDetailsStep({
               onChange={(e) => updateField("lastName", e.target.value)}
               className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
             />
-            <FieldError field="lastName" />
+            <FieldErrorMessage message={fieldErrors.lastName} />
           </div>
         </div>
 
@@ -131,7 +122,7 @@ export default function YourDetailsStep({
             onChange={(e) => updateField("phone", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="phone" />
+          <FieldErrorMessage message={fieldErrors.phone} />
         </div>
 
         <div>
@@ -149,7 +140,7 @@ export default function YourDetailsStep({
             onChange={(e) => updateField("email", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="email" />
+          <FieldErrorMessage message={fieldErrors.email} />
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -167,7 +158,7 @@ export default function YourDetailsStep({
               onChange={(e) => updateField("dateOfBirth", e.target.value)}
 className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
             />
-            <FieldError field="dateOfBirth" />
+            <FieldErrorMessage message={fieldErrors.dateOfBirth} />
           </div>
 
           <div>
@@ -209,7 +200,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                 </svg>
               </span>
             </div>
-            <FieldError field="maritalStatus" />
+            <FieldErrorMessage message={fieldErrors.maritalStatus} />
           </div>
         </div>
 
@@ -228,7 +219,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
             onChange={(e) => updateField("addressLine1", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="addressLine1" />
+          <FieldErrorMessage message={fieldErrors.addressLine1} />
         </div>
 
         <div>
@@ -246,7 +237,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
             onChange={(e) => updateField("postcode", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] uppercase text-zinc-900 outline-none transition-colors placeholder:normal-case placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="postcode" />
+          <FieldErrorMessage message={fieldErrors.postcode} />
         </div>
       </div>
 

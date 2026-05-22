@@ -94,6 +94,12 @@ type LandlordQuotePayload = {
 
 type FieldErrors = Partial<Record<keyof LandlordQuotePayload, string>>;
 
+type TurnstileVerificationResult = {
+  success?: boolean;
+  hostname?: string;
+  "error-codes"?: string[];
+};
+
 /* -------------------------------------------------------------------------- */
 /* Response helper                                                            */
 /* -------------------------------------------------------------------------- */
@@ -228,7 +234,10 @@ function isPositiveWholeNumber(value: string) {
 /* Turnstile                                                                  */
 /* -------------------------------------------------------------------------- */
 
-async function verifyTurnstile(token: string, remoteip?: string) {
+async function verifyTurnstile(
+  token: string,
+  remoteip?: string
+): Promise<TurnstileVerificationResult> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
 
   if (!secret) {
@@ -254,7 +263,7 @@ async function verifyTurnstile(token: string, remoteip?: string) {
     }
   );
 
-  return response.json();
+  return response.json() as Promise<TurnstileVerificationResult>;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -674,7 +683,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  let turnstileResult: any;
+  let turnstileResult: TurnstileVerificationResult;
 
   try {
     turnstileResult = await verifyTurnstile(turnstileToken, ip);

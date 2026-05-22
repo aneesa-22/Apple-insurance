@@ -1,20 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Libre_Baskerville, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import PageFooter from "../../components/site/PageFooter";
-import PageHeader from "../../components/site/PageHeader";
-import BackToHomeLink from "../../components/site/BackToHomeLink";
+import QuotePageHeader from "../../components/quote/QuotePageHeader";
+import QuotePageHero from "../../components/quote/QuotePageHero";
+import QuoteReassurancePanel from "../../components/quote/QuoteReassurancePanel";
+import { quotePrimaryButtonClass, quoteSecondaryButtonClass } from "../../components/quote/quoteButtonClasses";
 import YourDetailsStep from "../../components/forms/YourDetailsStep";
 import validateYourDetails from "../../components/lib/validateYourDetails";
 import TurnstileWidget from "../../components/forms/TurnstileWidget";
-
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import { SubmitErrorBox } from "../../components/forms/FormFeedback";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -84,25 +81,6 @@ export default function HomeQuotePage() {
     setSubmitError("");
   };
 
-  const FieldError = ({ field }: { field: FormField }) => {
-    if (!fieldErrors[field]) return null;
-
-    return (
-      <p className="mt-2 text-sm font-medium text-[#7f1d1d]">
-        {fieldErrors[field]}
-      </p>
-    );
-  };
-
-  const ErrorBox = () => {
-    if (!submitError) return null;
-
-    return (
-      <div className="rounded-2xl border border-[#7f1d1d]/20 bg-[#fdf1f1] px-5 py-4">
-        <p className="text-sm font-semibold text-[#7f1d1d]">{submitError}</p>
-      </div>
-    );
-  };
 
   const validateStepOne = () => {
     const errors = validateYourDetails(formData);
@@ -244,24 +222,15 @@ export default function HomeQuotePage() {
   return (
 
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <PageHeader activePage ="home" />
+      <QuotePageHeader activePage="home" />
+      <QuotePageHero
+        eyebrow="HOME INSURANCE"
+        heading="Tailored cover for homeowners and family properties."
+        supportingText="Trusted by thousands of UK customers."
+      />
 
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div ref={formTopRef} className="mx-auto w-full max-w-6xl">
-          <div className="mb-8 sm:mb-10">
-            <BackToHomeLink className="mb-8" />
-
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
-              Home Insurance
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
-              Let&apos;s find the right home insurance for you
-            </h1>
-            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-              Tell us a few details and we’ll review your enquiry and call you back to talk through your options.
-            </p>
-          </div>
-
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-[#7f1d1d]">
@@ -288,7 +257,7 @@ export default function HomeQuotePage() {
                                 updateField={updateField}
                                 fieldErrors={fieldErrors}
                               >
-                                <ErrorBox />
+                                <SubmitErrorBox message={submitError} />
               
                                 <button
                                   type="button"
@@ -297,10 +266,10 @@ export default function HomeQuotePage() {
                                     setSubmitError("");
                                     setStep(2);
                                   }}
-                                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
+                                  className={quotePrimaryButtonClass}
                                 >
-                                  Next
-                                </button>
+                  Next <span aria-hidden="true">→</span>
+                </button>
                               </YourDetailsStep>
             ) : (
               <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
@@ -622,18 +591,18 @@ export default function HomeQuotePage() {
                       <button
                         type="button"
                         onClick={() => setStep(1)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className={quoteSecondaryButtonClass}
                       >
-                        Back
-                      </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
                       <button
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className={quotePrimaryButtonClass}
                       >
-                        {isSubmitting ? "Submitting..." : "Submit enquiry"}
+                        {isSubmitting ? "Submitting..." : <>Submit enquiry <span aria-hidden="true">→</span></>}
                       </button>
                     </div>
                   )}
@@ -654,75 +623,7 @@ export default function HomeQuotePage() {
               </section>
             )}
 
-            {step === 1 ? (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you begin
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Please complete the form with as much detail as possible so we can provide an accurate quote.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  What happens next
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Once you submit your enquiry, we’ll review your details and call you back to talk through your options.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            ) : (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you submit
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These details help us understand your property and the cover you need.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Why we need this information
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Property type, age, flat roof areas, sum insured, and claims history can all affect the cover available. If you don’t have everything to hand, just send what you can.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            )}
+            <QuoteReassurancePanel />
           </div>
         </div>
       </div>

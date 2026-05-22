@@ -4,10 +4,13 @@ import Link from "next/link";
 import { Instrument_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import PageFooter from "../../components/site/PageFooter";
-import PageHeader from "../../components/site/PageHeader";
-import BackToHomeLink from "../../components/site/BackToHomeLink";
+import QuotePageHeader from "../../components/quote/QuotePageHeader";
+import QuotePageHero from "../../components/quote/QuotePageHero";
+import QuoteReassurancePanel from "../../components/quote/QuoteReassurancePanel";
+import { quotePrimaryButtonClass, quoteSecondaryButtonClass } from "../../components/quote/quoteButtonClasses";
 import YourDetailsStep from "../../components/forms/YourDetailsStep";
 import TurnstileWidget from "../../components/forms/TurnstileWidget";
+import { FieldErrorMessage, SubmitErrorBox } from "../../components/forms/FormFeedback";
 import validateYourDetails from "../../components/lib/validateYourDetails";
 
 const instrumentSans = Instrument_Sans({
@@ -129,25 +132,6 @@ export default function MotorTradeQuotePage() {
     setSubmitError("");
   };
 
-  const FieldError = ({ field }: { field: FormField }) => {
-    if (!fieldErrors[field]) return null;
-
-    return (
-      <p className="mt-2 text-sm font-medium text-[#7f1d1d]">
-        {fieldErrors[field]}
-      </p>
-    );
-  };
-
-  const ErrorBox = () => {
-    if (!submitError) return null;
-
-    return (
-      <div className="rounded-2xl border border-[#7f1d1d]/20 bg-[#fdf1f1] px-5 py-4">
-        <p className="text-sm font-semibold text-[#7f1d1d]">{submitError}</p>
-      </div>
-    );
-  };
 
   const validateStepOne = () => {
     const errors = validateYourDetails(formData);
@@ -401,24 +385,15 @@ export default function MotorTradeQuotePage() {
     <main
       className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}
     >
-      <PageHeader activePage="motor" />
+      <QuotePageHeader activePage="motor" />
+      <QuotePageHero
+        eyebrow="MOTOR TRADE INSURANCE"
+        heading="Tailored cover for motor traders, garages and vehicle businesses."
+        supportingText="Trusted by thousands of UK motor businesses."
+      />
 
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div ref={formTopRef} className="mx-auto w-full max-w-6xl">
-          <div className="mb-8 sm:mb-10">
-            <BackToHomeLink className="mb-8" />
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
-              Motor Trade Insurance
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
-              Let&apos;s find the right motor trade insurance for you
-            </h1>
-            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-              Tell us a few key details and our team will review your enquiry and
-              get in touch to discuss your quote.
-            </p>
-          </div>
-
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-[#7f1d1d]">
@@ -454,7 +429,7 @@ export default function MotorTradeQuotePage() {
                 updateField={updateField}
                 fieldErrors={fieldErrors}
               >
-                <ErrorBox />
+                <SubmitErrorBox message={submitError} />
 
                 <button
                   type="button"
@@ -463,9 +438,9 @@ export default function MotorTradeQuotePage() {
                     setSubmitError("");
                     setStep(2);
                   }}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
+                  className={quotePrimaryButtonClass}
                 >
-                  Next
+                  Next <span aria-hidden="true">→</span>
                 </button>
               </YourDetailsStep>
             )}
@@ -503,7 +478,7 @@ export default function MotorTradeQuotePage() {
                           )
                         )}
                       </div>
-                      <FieldError field="businessStructure" />
+                      <FieldErrorMessage message={fieldErrors.businessStructure} />
                     </div>
 
                     <div>
@@ -531,7 +506,7 @@ export default function MotorTradeQuotePage() {
                           </button>
                         ))}
                       </div>
-                      <FieldError field="tradingBasis" />
+                      <FieldErrorMessage message={fieldErrors.tradingBasis} />
                     </div>
                   </div>
 
@@ -551,7 +526,7 @@ export default function MotorTradeQuotePage() {
                         onChange={(e) => updateField("occupation", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="occupation" />
+                      <FieldErrorMessage message={fieldErrors.occupation} />
                     </div>
                   )}
 
@@ -570,7 +545,7 @@ export default function MotorTradeQuotePage() {
                       onChange={(e) => updateField("businessName", e.target.value)}
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="businessName" />
+                    <FieldErrorMessage message={fieldErrors.businessName} />
                   </div>
 
                   <div>
@@ -588,7 +563,7 @@ export default function MotorTradeQuotePage() {
                       onChange={(e) => updateField("businessAddress", e.target.value)}
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="businessAddress" />
+                    <FieldErrorMessage message={fieldErrors.businessAddress} />
                   </div>
 
                   <div>
@@ -626,7 +601,7 @@ export default function MotorTradeQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="businessType" />
+                    <FieldErrorMessage message={fieldErrors.businessType} />
                   </div>
 
                   {formData.businessType === "Other" && (
@@ -647,7 +622,7 @@ export default function MotorTradeQuotePage() {
                         }
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="otherBusinessType" />
+                      <FieldErrorMessage message={fieldErrors.otherBusinessType} />
                     </div>
                   )}
 
@@ -672,7 +647,7 @@ export default function MotorTradeQuotePage() {
                           </button>
                         ))}
                       </div>
-                      <FieldError field="runFromHome" />
+                      <FieldErrorMessage message={fieldErrors.runFromHome} />
                     </div>
 
                     <div>
@@ -690,7 +665,7 @@ export default function MotorTradeQuotePage() {
                         onChange={(e) => updateField("annualTurnover", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="annualTurnover" />
+                      <FieldErrorMessage message={fieldErrors.annualTurnover} />
                     </div>
                   </div>
 
@@ -715,7 +690,7 @@ export default function MotorTradeQuotePage() {
                           </button>
                         ))}
                       </div>
-                      <FieldError field="apprentices" />
+                      <FieldErrorMessage message={fieldErrors.apprentices} />
                     </div>
 
                     <div>
@@ -739,22 +714,22 @@ export default function MotorTradeQuotePage() {
                         }}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="numberOfEmployees" />
+                      <FieldErrorMessage message={fieldErrors.numberOfEmployees} />
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-                  <ErrorBox />
+                  <SubmitErrorBox message={submitError} />
 
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                      className={quoteSecondaryButtonClass}
                     >
-                      Back
-                    </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
                     <button
                       type="button"
@@ -763,10 +738,10 @@ export default function MotorTradeQuotePage() {
                         setSubmitError("");
                         setStep(3);
                       }}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
+                      className={quotePrimaryButtonClass}
                     >
-                      Next
-                    </button>
+                  Next <span aria-hidden="true">→</span>
+                </button>
                   </div>
                 </div>
               </section>
@@ -806,7 +781,7 @@ export default function MotorTradeQuotePage() {
             </button>
           ))}
         </div>
-        <FieldError field="coverLevel" />
+        <FieldErrorMessage message={fieldErrors.coverLevel} />
       </div>
 
       <div className="grid gap-5 sm:gap-6">
@@ -849,7 +824,7 @@ export default function MotorTradeQuotePage() {
           </button>
         ))}
       </div>
-      <FieldError field={field as FormField} />
+      <FieldErrorMessage message={fieldErrors[field as FormField]} />
     </div>
   ))}
 </div>
@@ -873,7 +848,7 @@ export default function MotorTradeQuotePage() {
             onChange={(e) => updateField("maxVehicleValue", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="maxVehicleValue" />
+          <FieldErrorMessage message={fieldErrors.maxVehicleValue} />
         </div>
 
         <div>
@@ -891,7 +866,7 @@ export default function MotorTradeQuotePage() {
             onChange={(e) => updateField("maxVehicleCount", e.target.value)}
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="maxVehicleCount" />
+          <FieldErrorMessage message={fieldErrors.maxVehicleCount} />
         </div>
       </div>
 
@@ -921,7 +896,7 @@ export default function MotorTradeQuotePage() {
             </button>
           ))}
         </div>
-        <FieldError field="vehicleTypes" />
+        <FieldErrorMessage message={fieldErrors.vehicleTypes} />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -942,7 +917,7 @@ export default function MotorTradeQuotePage() {
             }
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="highPerformanceVehicles" />
+          <FieldErrorMessage message={fieldErrors.highPerformanceVehicles} />
         </div>
 
         <div>
@@ -963,22 +938,22 @@ export default function MotorTradeQuotePage() {
             }
             className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
           />
-          <FieldError field="overnightLocation" />
+          <FieldErrorMessage message={fieldErrors.overnightLocation} />
         </div>
       </div>
     </div>
 
     <div className="mt-10 space-y-4">
-      <ErrorBox />
+      <SubmitErrorBox message={submitError} />
 
       <div className="flex flex-col gap-4 sm:flex-row">
         <button
           type="button"
           onClick={() => setStep(2)}
-          className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+          className={quoteSecondaryButtonClass}
         >
-          Back
-        </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
         <button
           type="button"
@@ -987,10 +962,10 @@ export default function MotorTradeQuotePage() {
             setSubmitError("");
             setStep(4);
           }}
-          className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
+          className={quotePrimaryButtonClass}
         >
-          Next
-        </button>
+                  Next <span aria-hidden="true">→</span>
+                </button>
       </div>
     </div>
   </section>
@@ -1028,7 +1003,7 @@ export default function MotorTradeQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="youngestDriverAge" />
+                    <FieldErrorMessage message={fieldErrors.youngestDriverAge} />
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -1076,7 +1051,7 @@ export default function MotorTradeQuotePage() {
                             </button>
                           ))}
                         </div>
-                        <FieldError field={field as FormField} />
+                        <FieldErrorMessage message={fieldErrors[field as FormField]} />
                       </div>
                     ))}
                   </div>
@@ -1099,7 +1074,7 @@ export default function MotorTradeQuotePage() {
                         }
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="licencePointsDetails" />
+                      <FieldErrorMessage message={fieldErrors.licencePointsDetails} />
                     </div>
                   )}
 
@@ -1119,7 +1094,7 @@ export default function MotorTradeQuotePage() {
                         onChange={(e) => updateField("claimsDetails", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="claimsDetails" />
+                      <FieldErrorMessage message={fieldErrors.claimsDetails} />
                     </div>
                   )}
 
@@ -1137,7 +1112,7 @@ export default function MotorTradeQuotePage() {
                       onChange={(e) => updateField("startDate", e.target.value)}
 className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="startDate" />
+                    <FieldErrorMessage message={fieldErrors.startDate} />
                   </div>
 
                   <div>
@@ -1179,7 +1154,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                 </div>
 </div>
                 <div className="mt-10 space-y-4">
-                  <ErrorBox />
+                  <SubmitErrorBox message={submitError} />
 
                   {submitSuccess ? (
                     <div className="rounded-2xl border border-green-200 bg-green-50 px-5 py-5">
@@ -1196,18 +1171,18 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       <button
                         type="button"
                         onClick={() => setStep(3)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className={quoteSecondaryButtonClass}
                       >
-                        Back
-                      </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
                       <button
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className={quotePrimaryButtonClass}
                       >
-                        {isSubmitting ? "Submitting..." : "Submit enquiry"}
+                        {isSubmitting ? "Submitting..." : <>Submit enquiry <span aria-hidden="true">→</span></>}
                       </button>
                     </div>
                   )}
@@ -1228,147 +1203,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </section>
             )}
 
-            {step === 1 && (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you begin
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Please complete the form with as much detail as possible so we
-                  can provide an accurate quote.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  What happens next
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Once you submit your enquiry, our team will review the details
-                  and contact you to discuss the right cover for your business.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            )}
-
-            {step === 2 && (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Business details
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These questions help us understand the type and scale of the
-                  motor trade work you carry out.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Keep it simple
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  If you do not know exact figures right now, give your best
-                  estimate and our team can go through the detail with you
-                  later.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Not sure about everything?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    That&apos;s fine. Send what you can and we&apos;ll go through
-                    the rest with you when we call.
-                  </p>
-                </div>
-              </aside>
-            )}
-
-            {step === 3 && (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Cover and vehicles
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  This section helps us understand what you want covered and the
-                  types of vehicles involved in the business.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Why we ask this
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  The level of road risks cover, number of vehicles, and vehicle
-                  types all affect how your enquiry is assessed.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Not sure about everything?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    That&apos;s fine. Send what you can and we&apos;ll go through
-                    the rest with you when we call.
-                  </p>
-                </div>
-              </aside>
-            )}
-
-            {step === 4 && (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Drivers and history
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These questions help us understand previous claims,
-                  disclosures, and when you need cover to start.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Be as accurate as you can
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  If anything needs more detail, our team will go through it
-                  with you on the callback.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 for quick, friendly advice.
-                  </p>
-                </div>
-              </aside>
-            )}
+            <QuoteReassurancePanel />
           </div>
         </div>
       </div>

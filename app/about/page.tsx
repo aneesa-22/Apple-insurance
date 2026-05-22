@@ -1,16 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Libre_Baskerville, Instrument_Sans } from "next/font/google";
-import { useState } from "react";
+import { Instrument_Sans } from "next/font/google";
 import PageFooter from "../components/site/PageFooter";
-import PageHeader from "../components/site/PageHeader";
+import QuotePageHeader from "../components/quote/QuotePageHeader";
 import BackToHomeLink from "../components/site/BackToHomeLink";
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -18,11 +12,9 @@ const instrumentSans = Instrument_Sans({
 });
 
 export default function AboutPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <PageHeader activePage ="about" />
+      <QuotePageHeader activePage="about" />
 
 
 
@@ -199,47 +191,25 @@ While the range of cover has expanded, the focus has remained the same: clear ad
         </div>
       </section>
 
-      <section className="bg-[#f7f4ef] px-4 py-10 sm:px-8 sm:py-12 lg:px-16">
-        <div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.28),_transparent_22%),radial-gradient(circle_at_85%_20%,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,#0b1730_0%,#122344_52%,#10203d_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-[680px]">
-              <h2 className="text-3xl font-semibold tracking-tight text-white">
-                Speak to our team today
-              </h2>
-              <p className="mt-3 text-[17px] leading-8 text-zinc-300">
-                If you would like help with taxi, home, property, or another
-                insurance enquiry, our team is here to help.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
-              <Link
-                className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-[#7f1d1d] bg-white px-7 text-base font-semibold text-[#10203d] transition-all duration-200 hover:bg-[#7f1d1d] hover:text-white active:bg-[#7f1d1d] active:text-white"
-                href="/#find-cover"
-                onClick={(e) => {
-                  const isHomePage = window.location.pathname === "/";
-                  const el = document.getElementById("find-cover");
-
-                  if (isHomePage && el) {
-                    e.preventDefault();
-                    el.scrollIntoView({ behavior: "smooth", block: "start" });
-                    window.history.replaceState(null, "", "#find-cover");
-                  }
-                }}
-              >
-                Get a quote
-                <span className="text-[#9f1d1d]">→</span>
-              </Link>
-
-              <a
-                className="inline-flex h-14 min-w-[230px] items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-7 text-base font-semibold text-white transition-all duration-200 hover:border-[#7f1d1d] hover:bg-white/10 hover:text-[#7f1d1d] active:border-[#7f1d1d] active:bg-white/10 active:text-[#7f1d1d]"
-                href="tel:01618812139"
-              >
-                Speak to our team
-                <span className="text-[#9f1d1d]">→</span>
+      <section className="bg-white px-5 pb-14 sm:px-8 lg:px-16">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-[1.75rem] bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)] p-6 text-white shadow-[0_14px_40px_rgba(8,18,37,0.16)] sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-[17px] text-zinc-300">
+              Need help or want to speak to someone?
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Call our team today on{" "}
+              <a href="tel:01618812139" className="text-[#9f1d1d]">
+                0161 881 2139
               </a>
-            </div>
+            </h2>
           </div>
+          <Link
+            href="/quotes/taxi"
+            className="inline-flex h-14 items-center justify-center gap-3 rounded-[1.15rem] bg-[#9f1d1d] px-7 text-[15px] font-bold text-white transition-colors hover:bg-[#7f1d1d]"
+          >
+            Get a quote <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 

@@ -4,17 +4,20 @@
 import Link from "next/link";
 
 // Google fonts used for page styling
-import { Libre_Baskerville, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 
 // React hooks for refs and component state
 import { useRef, useState } from "react";
 
 // Shared site components
 import PageFooter from "../../components/site/PageFooter";
-import PageHeader from "../../components/site/PageHeader";
-import BackToHomeLink from "../../components/site/BackToHomeLink";
+import QuotePageHeader from "../../components/quote/QuotePageHeader";
+import QuotePageHero from "../../components/quote/QuotePageHero";
+import QuoteReassurancePanel from "../../components/quote/QuoteReassurancePanel";
+import { quotePrimaryButtonClass, quoteSecondaryButtonClass } from "../../components/quote/quoteButtonClasses";
 import YourDetailsStep from "../../components/forms/YourDetailsStep";
 import TurnstileWidget from "../../components/forms/TurnstileWidget";
+import { FieldErrorMessage, SubmitErrorBox } from "../../components/forms/FormFeedback";
 import validateYourDetails from "../../components/lib/validateYourDetails";
 
 // Main font for page content
@@ -85,27 +88,6 @@ export default function TaxiQuotePage() {
     setSubmitError("");
   };
 
-  // Small helper component for showing a validation message under one field
-  const FieldError = ({ field }: { field: FormField }) => {
-    if (!fieldErrors[field]) return null;
-
-    return (
-      <p className="mt-2 text-sm font-medium text-[#7f1d1d]">
-        {fieldErrors[field]}
-      </p>
-    );
-  };
-
-  // General form-level error box shown above submit actions
-  const ErrorBox = () => {
-    if (!submitError) return null;
-
-    return (
-      <div className="rounded-2xl border border-[#7f1d1d]/20 bg-[#fdf1f1] px-5 py-4">
-        <p className="text-sm font-semibold text-[#7f1d1d]">{submitError}</p>
-      </div>
-    );
-  };
 
   // Step 1 validation uses the shared validator because
   // the "Your details" step is now standard across forms
@@ -232,23 +214,14 @@ export default function TaxiQuotePage() {
 
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <PageHeader activePage="taxi" />
+      <QuotePageHeader activePage="taxi" />
+      <QuotePageHero
+        eyebrow="TAXI INSURANCE"
+        heading="Tailored cover for drivers, fleets and private hire businesses."
+        supportingText="Trusted by thousands of UK drivers."
+      />
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div ref={formTopRef} className="mx-auto w-full max-w-6xl">
-          <div className="mb-8 sm:mb-10">
-            <BackToHomeLink className="mb-8" />
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
-              Taxi Insurance
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
-              Let&apos;s find the right taxi insurance for you
-            </h1>
-            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-              Tell us a few details and we’ll review your enquiry and call you
-              back to talk through your options.
-            </p>
-          </div>
-
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-[#7f1d1d]">
@@ -280,7 +253,7 @@ export default function TaxiQuotePage() {
                   updateField={updateField}
                   fieldErrors={fieldErrors}
                 >
-                  <ErrorBox />
+                  <SubmitErrorBox message={submitError} />
 
                   <button
                     type="button"
@@ -289,10 +262,10 @@ export default function TaxiQuotePage() {
                       setSubmitError("");
                       setStep(2);
                     }}
-                    className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
+                    className={quotePrimaryButtonClass}
                   >
-                    Next
-                  </button>
+                  Next <span aria-hidden="true">→</span>
+                </button>
                 </YourDetailsStep>
 
             ) : (
@@ -326,7 +299,7 @@ export default function TaxiQuotePage() {
                       onChange={(e) => updateField("licenceNumber", e.target.value)}
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="licenceNumber" />
+                    <FieldErrorMessage message={fieldErrors.licenceNumber} />
                   </div>
 
                   <div>
@@ -346,7 +319,7 @@ export default function TaxiQuotePage() {
                       }
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="licenceAuthority" />
+                    <FieldErrorMessage message={fieldErrors.licenceAuthority} />
                   </div>
 
                   <div>
@@ -369,7 +342,7 @@ export default function TaxiQuotePage() {
                       }
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] uppercase text-zinc-900 outline-none transition-colors placeholder:normal-case placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="vehicleRegistration" />
+                    <FieldErrorMessage message={fieldErrors.vehicleRegistration} />
                   </div>
 
                   <div>
@@ -394,7 +367,7 @@ export default function TaxiQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="noClaimsBonus" />
+                    <FieldErrorMessage message={fieldErrors.noClaimsBonus} />
                   </div>
 
                   <div>
@@ -424,7 +397,7 @@ export default function TaxiQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="hadClaims" />
+                    <FieldErrorMessage message={fieldErrors.hadClaims} />
                   </div>
 
                   {formData.hadClaims === "Yes" && (
@@ -444,7 +417,7 @@ export default function TaxiQuotePage() {
                         onChange={(e) => updateField("claimCount", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="claimCount" />
+                      <FieldErrorMessage message={fieldErrors.claimCount} />
                     </div>
                   )}
 
@@ -462,7 +435,7 @@ export default function TaxiQuotePage() {
                       onChange={(e) => updateField("renewalDate", e.target.value)}
 className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="renewalDate" />
+                    <FieldErrorMessage message={fieldErrors.renewalDate} />
                   </div>
 
                   <div>
@@ -481,12 +454,12 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       onChange={(e) => updateField("additionalNotes", e.target.value)}
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="additionalNotes" />
+                    <FieldErrorMessage message={fieldErrors.additionalNotes} />
                   </div>
                 </div>
 
                 <div className="mt-10 space-y-4">
-  <ErrorBox />
+  <SubmitErrorBox message={submitError} />
 
   <div className="mt-6">
     <p className="mb-3 text-sm font-semibold text-[#10203d]">
@@ -521,18 +494,18 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
       <button
         type="button"
         onClick={() => setStep(1)}
-        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+        className={quoteSecondaryButtonClass}
       >
-        Back
-      </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
       <button
         type="button"
         onClick={handleSubmit}
         disabled={isSubmitting}
-        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+        className={quotePrimaryButtonClass}
       >
-        {isSubmitting ? "Submitting..." : "Submit enquiry"}
+        {isSubmitting ? "Submitting..." : <>Submit enquiry <span aria-hidden="true">→</span></>}
       </button>
     </div>
   )}
@@ -556,83 +529,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </section>
             )}
 
-            {step === 1 ? (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you begin
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Please complete the form with as much detail as possible so we
-                  can provide an accurate quote.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  What happens next
-                </h3>
-                <div className="mt-3 space-y-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  <p>
-                    Once you submit your enquiry, our team will review your
-                    details and contact you to talk through your options.
-                  </p>
-                </div>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            ) : (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you submit
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These details help us understand your vehicle and insurance needs
-                  so we can provide an accurate quote.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  What happens next
-                </h3>
-                <div className="mt-3 space-y-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  <p>
-                    Once you submit your enquiry, we’ll review your details and
-                    call you back to talk through your options.
-                  </p>
-                </div>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            )}
+            <QuoteReassurancePanel />
           </div>
         </div>
       </div>

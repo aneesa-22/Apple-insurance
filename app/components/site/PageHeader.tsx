@@ -38,8 +38,7 @@ export default function  Header({ activePage }: PageHeaderProps) {
 
   return (
     <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)]">
-<div className="flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">
-        <div className="flex items-start justify-between gap-4 sm:gap-6">
+<div className="flex w-full max-w-6xl flex-col gap-5 px-4 pt-10 pb-6 sm:px-8 sm:pb-8 sm:pt-20">          <div className="flex items-start">
           <Link href="/" className="relative shrink-0">
     <img
       src="/icons/logo.png"
@@ -77,29 +76,45 @@ export default function  Header({ activePage }: PageHeaderProps) {
             {mobileMenuOpen ? "×" : "☰"}
           </button>
 
-          <nav className="hidden flex-1 items-center justify-end gap-10 pt-2 text-[17px] text-zinc-300 lg:flex lg:text-[19px]">
-            {navItems.map((item) => {
+          <nav className="hidden items-center gap-8 pt-2 text-[17px] text-zinc-300 lg:ml-auto lg:flex lg:text-[19px]">
+            {navItems.map((item, index) => {
               const isActive = item.id === activePage;
+              const showDivider = index === 3;
 
               return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={`group relative whitespace-nowrap font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "text-white"
-                      : "text-zinc-300 hover:text-white"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  <span
-                    className={`absolute left-1/2 top-full mt-2 h-[3px] -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                <>
+                  {showDivider && (
+                    <span key={`divider-${item.id}`} className="h-5 w-px shrink-0 bg-white/20" />
+                  )}
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className={`group relative whitespace-nowrap font-medium transition-colors duration-200 ${
+                      isActive
+                        ? "text-white"
+                        : "text-zinc-300 hover:text-white"
                     }`}
-                  />
-                </Link>
+                  >
+                    <span>{item.label}</span>
+                    <span
+                      className={`absolute left-1/2 top-full mt-2 h-[3px] -translate-x-1/2 rounded-full bg-[#7f1d1d] transition-all duration-200 ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </Link>
+                </>
               );
             })}
+            <span className="h-5 w-px shrink-0 bg-white/20" />
+            <a
+              href="tel:01618812139"
+              className="flex items-center gap-2 whitespace-nowrap font-medium text-[#9f1d1d] transition-colors duration-200 hover:text-[#c0392b]"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0">
+                <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clipRule="evenodd" />
+              </svg>
+              0161 881 2139
+            </a>
           </nav>
         </div>
 

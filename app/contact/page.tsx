@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Instrument_Sans } from "next/font/google";
 import PageFooter from "../components/site/PageFooter";
-import PageHeader from "../components/site/PageHeader";
+import QuotePageHeader from "../components/quote/QuotePageHeader";
 import BackToHomeLink from "../components/site/BackToHomeLink";
 import TurnstileWidget from "../components/forms/TurnstileWidget";
 
@@ -77,7 +77,7 @@ export default function ContactPage() {
 
   return (
     <main className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}>
-      <PageHeader activePage="contact" />
+      <QuotePageHeader activePage="contact" />
 
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div className="mx-auto w-full max-w-6xl">
@@ -314,9 +314,9 @@ export default function ContactPage() {
                       type="button"
                       onClick={handleSubmit}
                       disabled={isSubmitting}
-                      className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
-                    >
-                      {isSubmitting ? "Sending..." : "Send message"}
+                      className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-all duration-200 hover:bg-[#183056] active:bg-[#2a4a6a] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                      >
+                      {isSubmitting ? "Sending..." : "Send message →"}
                     </button>
                   </div>
                 )}

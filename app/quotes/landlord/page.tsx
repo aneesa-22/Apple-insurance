@@ -4,11 +4,14 @@ import Link from "next/link";
 import { Instrument_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import PageFooter from "../../components/site/PageFooter";
-import PageHeader from "../../components/site/PageHeader";
-import BackToHomeLink from "../../components/site/BackToHomeLink";
+import QuotePageHeader from "../../components/quote/QuotePageHeader";
+import QuotePageHero from "../../components/quote/QuotePageHero";
+import QuoteReassurancePanel from "../../components/quote/QuoteReassurancePanel";
+import { quotePrimaryButtonClass, quoteSecondaryButtonClass } from "../../components/quote/quoteButtonClasses";
 import YourDetailsStep from "../../components/forms/YourDetailsStep";
 import validateYourDetails from "../../components/lib/validateYourDetails";
 import TurnstileWidget from "../../components/forms/TurnstileWidget";
+import { FieldErrorMessage, SubmitErrorBox } from "../../components/forms/FormFeedback";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -105,25 +108,6 @@ export default function LandlordQuotePage() {
     setSubmitError("");
   };
 
-  const FieldError = ({ field }: { field: FormField }) => {
-    if (!fieldErrors[field]) return null;
-
-    return (
-      <p className="mt-2 text-sm font-medium text-[#7f1d1d]">
-        {fieldErrors[field]}
-      </p>
-    );
-  };
-
-  const ErrorBox = () => {
-    if (!submitError) return null;
-
-    return (
-      <div className="rounded-2xl border border-[#7f1d1d]/20 bg-[#fdf1f1] px-5 py-4">
-        <p className="text-sm font-semibold text-[#7f1d1d]">{submitError}</p>
-      </div>
-    );
-  };
 
   const validateStepOne = () => {
     const errors = validateYourDetails(formData);
@@ -379,25 +363,15 @@ export default function LandlordQuotePage() {
     <main
       className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}
     >
-      <PageHeader activePage="landlord" />
+      <QuotePageHeader activePage="landlord" />
+      <QuotePageHero
+        eyebrow="LANDLORD INSURANCE"
+        heading="Tailored cover for landlords, rental homes and property portfolios."
+        supportingText="Trusted by thousands of UK property owners."
+      />
 
       <div className="px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
         <div ref={formTopRef} className="mx-auto w-full max-w-6xl">
-          <div className="mb-8 sm:mb-10">
-            <BackToHomeLink className="mb-8" />
-
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-[#7f1d1d]">
-              Landlord Insurance
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[#10203d] sm:text-4xl">
-              Let&apos;s find the right landlord insurance for you
-            </h1>
-            <p className="mt-4 max-w-2xl text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-              Tell us a few details and we’ll review your enquiry and call you
-              back to talk through your options.
-            </p>
-          </div>
-
           <div className="mb-8 sm:mb-10">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-semibold text-[#7f1d1d]">
@@ -428,7 +402,7 @@ export default function LandlordQuotePage() {
                 updateField={updateField}
                 fieldErrors={fieldErrors}
               >
-                <ErrorBox />
+                <SubmitErrorBox message={submitError} />
 
                 <button
                   type="button"
@@ -437,9 +411,9 @@ export default function LandlordQuotePage() {
                     setSubmitError("");
                     setStep(2);
                   }}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:w-auto sm:text-base"
+                  className={quotePrimaryButtonClass}
                 >
-                  Next
+                  Next <span aria-hidden="true">→</span>
                 </button>
               </YourDetailsStep>
             ) : step === 2 ? (
@@ -479,7 +453,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="hadClaimsLastFiveYears" />
+                    <FieldErrorMessage message={fieldErrors.hadClaimsLastFiveYears} />
 
                     {formData.hadClaimsLastFiveYears === "Yes" && (
                       <div className="mt-5">
@@ -500,7 +474,7 @@ export default function LandlordQuotePage() {
                           }
                           className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                         />
-                        <FieldError field="claimCount" />
+                        <FieldErrorMessage message={fieldErrors.claimCount} />
                       </div>
                     )}
                   </div>
@@ -522,7 +496,7 @@ export default function LandlordQuotePage() {
                       }
                       className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                     />
-                    <FieldError field="propertyAddress" />
+                    <FieldErrorMessage message={fieldErrors.propertyAddress} />
                   </div>
 
                   <div>
@@ -545,7 +519,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="propertyType" />
+                    <FieldErrorMessage message={fieldErrors.propertyType} />
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -567,7 +541,7 @@ export default function LandlordQuotePage() {
                         }
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="bedroomCount" />
+                      <FieldErrorMessage message={fieldErrors.bedroomCount} />
                     </div>
 
                     <div>
@@ -585,7 +559,7 @@ export default function LandlordQuotePage() {
                         onChange={(e) => updateField("yearBuilt", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="yearBuilt" />
+                      <FieldErrorMessage message={fieldErrors.yearBuilt} />
                     </div>
                   </div>
 
@@ -611,7 +585,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="standardConstruction" />
+                    <FieldErrorMessage message={fieldErrors.standardConstruction} />
                   </div>
 
                   <div>
@@ -634,7 +608,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="floodingHistory" />
+                    <FieldErrorMessage message={fieldErrors.floodingHistory} />
                   </div>
 
                   <div>
@@ -659,7 +633,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="subsidenceHistory" />
+                    <FieldErrorMessage message={fieldErrors.subsidenceHistory} />
                   </div>
 
                   <div>
@@ -684,7 +658,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="structuralMovementHistory" />
+                    <FieldErrorMessage message={fieldErrors.structuralMovementHistory} />
                   </div>
 
                   <div>
@@ -713,7 +687,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="tenantType" />
+                    <FieldErrorMessage message={fieldErrors.tenantType} />
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -733,7 +707,7 @@ export default function LandlordQuotePage() {
                         onChange={(e) => updateField("tenantCount", e.target.value)}
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="tenantCount" />
+                      <FieldErrorMessage message={fieldErrors.tenantCount} />
                     </div>
 
                     <div>
@@ -758,7 +732,7 @@ export default function LandlordQuotePage() {
                           </button>
                         ))}
                       </div>
-                      <FieldError field="writtenTenancyAgreement" />
+                      <FieldErrorMessage message={fieldErrors.writtenTenancyAgreement} />
                     </div>
                   </div>
 
@@ -782,7 +756,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="longTermLet" />
+                    <FieldErrorMessage message={fieldErrors.longTermLet} />
                   </div>
 
                   <div>
@@ -805,7 +779,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="isHmo" />
+                    <FieldErrorMessage message={fieldErrors.isHmo} />
                   </div>
 
                   <div>
@@ -828,7 +802,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="businessUse" />
+                    <FieldErrorMessage message={fieldErrors.businessUse} />
                   </div>
 
                   <div>
@@ -853,7 +827,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="emptyMoreThanThirtyDays" />
+                    <FieldErrorMessage message={fieldErrors.emptyMoreThanThirtyDays} />
                   </div>
                 </div>
 
@@ -861,10 +835,10 @@ export default function LandlordQuotePage() {
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                    className={quoteSecondaryButtonClass}
                   >
-                    Back
-                  </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
                   <button
                     type="button"
@@ -873,10 +847,10 @@ export default function LandlordQuotePage() {
                       setSubmitError("");
                       setStep(3);
                     }}
-                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] sm:text-base"
+                    className={quotePrimaryButtonClass}
                   >
-                    Next
-                  </button>
+                  Next <span aria-hidden="true">→</span>
+                </button>
                 </div>
               </section>
             ) : (
@@ -909,7 +883,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="buildingsCover" />
+                    <FieldErrorMessage message={fieldErrors.buildingsCover} />
                   </div>
 
                   <div>
@@ -932,7 +906,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="contentsCover" />
+                    <FieldErrorMessage message={fieldErrors.contentsCover} />
                   </div>
 
                   <div>
@@ -955,7 +929,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="lossOfRentCover" />
+                    <FieldErrorMessage message={fieldErrors.lossOfRentCover} />
                   </div>
 
                   <div>
@@ -980,7 +954,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="propertyOwnersLiability" />
+                    <FieldErrorMessage message={fieldErrors.propertyOwnersLiability} />
                   </div>
 
                   <div>
@@ -1003,7 +977,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="accidentalDamage" />
+                    <FieldErrorMessage message={fieldErrors.accidentalDamage} />
                   </div>
 
                   <div>
@@ -1032,7 +1006,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="hasMortgage" />
+                    <FieldErrorMessage message={fieldErrors.hasMortgage} />
                   </div>
 
                   {formData.hasMortgage === "Yes" && (
@@ -1052,7 +1026,7 @@ export default function LandlordQuotePage() {
                           onChange={(e) => updateField("lenderName", e.target.value)}
                           className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                         />
-                        <FieldError field="lenderName" />
+                        <FieldErrorMessage message={fieldErrors.lenderName} />
                       </div>
 
                       <div>
@@ -1077,7 +1051,7 @@ export default function LandlordQuotePage() {
                             </button>
                           ))}
                         </div>
-                        <FieldError field="buyToLetMortgage" />
+                        <FieldErrorMessage message={fieldErrors.buyToLetMortgage} />
                       </div>
                     </div>
                   )}
@@ -1102,7 +1076,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="smokeAlarms" />
+                    <FieldErrorMessage message={fieldErrors.smokeAlarms} />
                   </div>
 
                   <div>
@@ -1127,7 +1101,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="gasSafetyCertificate" />
+                    <FieldErrorMessage message={fieldErrors.gasSafetyCertificate} />
                   </div>
 
                   <div>
@@ -1152,7 +1126,7 @@ export default function LandlordQuotePage() {
                         </button>
                       ))}
                     </div>
-                    <FieldError field="electricalSafetyCertificate" />
+                    <FieldErrorMessage message={fieldErrors.electricalSafetyCertificate} />
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
@@ -1173,7 +1147,7 @@ export default function LandlordQuotePage() {
                         }
                         className="w-full rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="previousInsurerName" />
+                      <FieldErrorMessage message={fieldErrors.previousInsurerName} />
                     </div>
 
                     <div>
@@ -1190,7 +1164,7 @@ export default function LandlordQuotePage() {
                         onChange={(e) => updateField("renewalDate", e.target.value)}
 className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl border border-zinc-200 px-4 py-3 text-[15px] text-zinc-900 outline-none transition-colors focus:border-[#7f1d1d] sm:text-base"
                       />
-                      <FieldError field="renewalDate" />
+                      <FieldErrorMessage message={fieldErrors.renewalDate} />
                     </div>
                   </div>
 
@@ -1236,7 +1210,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                 </div>
 </div>
                 <div className="mt-10 space-y-4">
-                  <ErrorBox />
+                  <SubmitErrorBox message={submitError} />
 
                   {submitSuccess ? (
                     <div className="rounded-2xl border border-green-200 bg-green-50 px-5 py-5">
@@ -1253,18 +1227,18 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
                       <button
                         type="button"
                         onClick={() => setStep(2)}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-300 bg-white px-8 text-[15px] font-semibold text-[#10203d] transition-colors hover:border-[#7f1d1d] hover:text-[#7f1d1d] sm:text-base"
+                        className={quoteSecondaryButtonClass}
                       >
-                        Back
-                      </button>
+                  <span aria-hidden="true">←</span> Back
+                </button>
 
                       <button
                         type="button"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
-                        className="inline-flex h-14 items-center justify-center rounded-2xl border border-[#10203d] bg-[#10203d] px-8 text-[15px] font-semibold text-white transition-colors hover:bg-[#183056] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                        className={quotePrimaryButtonClass}
                       >
-                        {isSubmitting ? "Submitting..." : "Submit enquiry"}
+                        {isSubmitting ? "Submitting..." : <>Submit enquiry <span aria-hidden="true">→</span></>}
                       </button>
                     </div>
                   )}
@@ -1285,105 +1259,7 @@ className="box-border min-w-0 max-w-full w-full appearance-none rounded-2xl bord
               </section>
             )}
 
-            {step === 1 ? (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Before you begin
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Please complete the form with as much detail as possible so we
-                  can provide an accurate quote.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  What happens next
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Once you submit your enquiry, our team will review your
-                  details and contact you to talk through your options.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to us?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            ) : step === 2 ? (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Property details
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These details help us understand the property and tenancy
-                  before we call you.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Why we need this information
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Things like property type, construction, occupancy and history
-                  can affect the cover available and how we review your enquiry.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Not sure about everything?
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  That’s fine. Send what you can and we’ll talk through the rest
-                  when we call you.
-                </p>
-              </aside>
-            ) : (
-              <aside className="rounded-[1.75rem] bg-[#f7f4ef] p-5 sm:rounded-3xl sm:p-8">
-                <h2 className="text-[21px] font-semibold tracking-tight text-[#10203d] sm:text-2xl">
-                  Cover and insurance
-                </h2>
-                <p className="mt-4 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  These details help us understand the cover you need and your
-                  current insurance.
-                </p>
-
-                <h3 className="mt-6 text-lg font-semibold text-[#10203d] sm:mt-8">
-                  Why we ask for this
-                </h3>
-                <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                  Cover choices, safety checks, and insurance history can all
-                  affect the options available.
-                </p>
-
-                <div className="mt-6 sm:mt-8">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/icons/phone.svg"
-                      alt="Phone icon"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <h3 className="text-lg font-semibold text-[#10203d]">
-                      Prefer to speak to someone directly?
-                    </h3>
-                  </div>
-
-                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
-                    Call our team on 0161 881 2139 to speak directly with one of
-                    our advisors.
-                  </p>
-                </div>
-              </aside>
-            )}
+            <QuoteReassurancePanel />
           </div>
         </div>
       </div>
