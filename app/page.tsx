@@ -169,10 +169,15 @@ export default function Home() {
             </div>
             <span className="h-5 w-px bg-white/25" />
             <div className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[#9f1d1d]">
-                ✓
+              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-white/5">
+                <img
+                  src="/icons/shield-check.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-4 object-contain"
+                />
               </span>
-              <span>FCA regulated</span>
+              <span>25+ years experience</span>
             </div>
           </div>
 

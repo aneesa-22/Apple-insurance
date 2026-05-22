@@ -2,11 +2,6 @@
 
 const reassuranceRows = [
   {
-    title: "FCA regulated",
-    copy: "Clear, regulated support from a trusted insurance broker.",
-    icon: "/icons/shield-check.svg",
-  },
-  {
     title: "Secure & confidential",
     copy: "Your information is handled carefully and kept private.",
     icon: "/icons/lock.svg",

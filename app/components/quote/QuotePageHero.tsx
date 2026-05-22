@@ -30,13 +30,6 @@ export default function QuotePageHero({
             <span>★</span>
             <span>★</span>
           </div>
-          <span className="h-5 w-px bg-zinc-300" />
-          <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#10203d]/20 text-[12px] text-[#9f1d1d]">
-              ✓
-            </span>
-            <span>FCA regulated</span>
-          </div>
         </div>
       </div>
     </section>
