@@ -9,7 +9,14 @@ const libreBaskerville = Libre_Baskerville({
   weight: ["400", "700"],
 });
 
-type ActivePage = "taxi" | "home" | "landlord" | "motor" | "about" | "contact";
+type ActivePage =
+  | "taxi"
+  | "home"
+  | "landlord"
+  | "motor"
+  | "about"
+  | "contact"
+  | "none";
 
 type QuotePageHeaderProps = {
   activePage: ActivePage;

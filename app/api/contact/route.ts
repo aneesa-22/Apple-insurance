@@ -24,6 +24,8 @@ const allowedEnquiryTypes = [
   "Home Insurance",
   "Property Insurance",
   "Motor Trade Insurance",
+  "Car Insurance",
+  "Travel Insurance",
   "Complaints",
   "General Enquiry",
 ];
@@ -431,7 +433,7 @@ export async function POST(request: NextRequest) {
   const internalEmailResult = await resend.emails.send({
     from: fromEmail,
     to: notificationEmail,
-    subject: `New Contact Enquiry - ${data.firstName} ${data.lastName}`,
+    subject: `New ${data.enquiryType} Enquiry - ${data.firstName} ${data.lastName}`,
     html: formatInternalEmailHtml(data),
     replyTo: data.email,
   });

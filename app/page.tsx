@@ -40,6 +40,20 @@ const serviceCards = [
     icon: "/icons/engine.svg",
     href: "/quotes/motor",
   },
+  {
+    title: "Car Insurance",
+    description:
+      "Straightforward support for personal car insurance enquiries.",
+    icon: "/icons/car-profile-thin.svg",
+    href: "/quotes/car",
+  },
+  {
+    title: "Travel Insurance",
+    description:
+      "Help with travel cover enquiries for holidays, trips and time away.",
+    icon: "/icons/airplane-thin.svg",
+    href: "/quotes/travel",
+  },
 ];
 
 const partners = [
@@ -204,7 +218,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {serviceCards.map((card) => (
               <article
                 key={card.title}
