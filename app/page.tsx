@@ -50,9 +50,9 @@ const serviceCards = [
   {
     title: "Travel Insurance",
     description:
-      "Help with travel cover enquiries for holidays, trips and time away.",
+      "We have partnered with Aneevo to assist you in finding Travel Insurance. When you click the link below you will be transferred to a white label website operated by Aneevo. Please view their Privacy Policy for full details on how your data is used.",
     icon: "/icons/airplane-thin.svg",
-    href: "/quotes/travel",
+    href: "https://appleinsuranceservices.aneevo.com/",
   },
 ];
 
@@ -240,6 +240,12 @@ export default function Home() {
                 </p>
                 <Link
                   href={card.href}
+                  target={card.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    card.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="mt-5 inline-flex items-center gap-2 text-[14px] font-bold text-[#9f1d1d] transition-colors hover:text-[#7f1d1d]"
                 >
                   Get a quote <span aria-hidden="true">→</span>
