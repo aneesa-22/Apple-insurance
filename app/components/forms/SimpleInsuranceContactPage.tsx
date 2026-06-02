@@ -19,6 +19,14 @@ type SimpleInsuranceContactPageProps = {
   eyebrow: string;
   heading: string;
   intro: string;
+  partnerQuote?: {
+    title: string;
+    copy: string;
+    buttonLabel: string;
+    href: string;
+    note: string;
+    followUp: string;
+  };
 };
 
 export default function SimpleInsuranceContactPage({
@@ -26,6 +34,7 @@ export default function SimpleInsuranceContactPage({
   eyebrow,
   heading,
   intro,
+  partnerQuote,
 }: SimpleInsuranceContactPageProps) {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -105,6 +114,37 @@ export default function SimpleInsuranceContactPage({
               {intro}
             </p>
           </div>
+
+          {partnerQuote && (
+            <section className="mb-8 rounded-[1.75rem] border border-zinc-200 bg-[#f7f4ef] p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:mb-10 sm:rounded-3xl sm:p-8">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="max-w-2xl">
+                  <h2 className="text-[22px] font-bold tracking-tight text-[#10203d] sm:text-3xl">
+                    {partnerQuote.title}
+                  </h2>
+                  <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
+                    {partnerQuote.copy}
+                  </p>
+                  <p className="mt-4 text-sm leading-6 text-zinc-500">
+                    {partnerQuote.note}
+                  </p>
+                  <p className="mt-4 text-[15px] leading-7 text-[#10203d] sm:text-[16px]">
+                    {partnerQuote.followUp}
+                  </p>
+                </div>
+
+                <a
+                  href={partnerQuote.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-[1.15rem] bg-[#10203d] px-7 text-[15px] font-bold text-white shadow-[0_10px_24px_rgba(16,32,61,0.18)] transition-colors hover:bg-[#183056]"
+                >
+                  {partnerQuote.buttonLabel}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </section>
+          )}
 
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
             <section className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">

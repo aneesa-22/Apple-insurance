@@ -34,7 +34,7 @@ const serviceCards = [
     href: "/quotes/landlord",
   },
   {
-    title: "Motor Insurance",
+    title: "Motor Trade Insurance",
     description:
       "Support for motor trade businesses, vehicles and specialist road risks.",
     icon: "/icons/engine.svg",
