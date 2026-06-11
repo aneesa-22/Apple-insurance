@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Libre_Baskerville } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
@@ -31,11 +31,60 @@ const navItems = [
   { id: "contact", label: "Contact", href: "/contact" },
 ] as const;
 
+const serviceItems = [
+  { label: "Taxi Insurance", href: "/quotes/taxi" },
+  { label: "Home Insurance", href: "/quotes/home" },
+  { label: "Landlord Insurance", href: "/quotes/landlord" },
+  { label: "Motor Trade Insurance", href: "/quotes/motor" },
+  { label: "Car Insurance", href: "/quotes/car" },
+  {
+    label: "Short Term Car Insurance",
+    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
+  },
+  {
+    label: "Travel Insurance",
+    href: "https://appleinsuranceservices.aneevo.com/",
+  },
+] as const;
+
+const mobileNavItems = [
+  ...navItems.slice(0, 4),
+  ...serviceItems.slice(4),
+  ...navItems.slice(4),
+] as const;
+
 export default function QuotePageHeader({ activePage }: QuotePageHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const closeServicesMenu = (event: MouseEvent) => {
+      if (
+        servicesMenuRef.current &&
+        !servicesMenuRef.current.contains(event.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", closeServicesMenu);
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", closeServicesMenu);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
 
   return (
-    <header className="bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)] text-white shadow-[0_1px_0_rgba(255,255,255,0.08)]">
+    <header className="relative z-50 bg-[radial-gradient(circle_at_top_left,_rgba(127,29,29,0.22),_transparent_24%),linear-gradient(135deg,#0b1730_0%,#122344_55%,#10203d_100%)] text-white shadow-[0_1px_0_rgba(255,255,255,0.08)]">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-5 py-5 sm:px-8 lg:px-12 lg:py-7">
         <Link href="/" className="relative flex min-h-[82px] w-[180px] shrink-0 items-center">
           <img
@@ -61,7 +110,7 @@ export default function QuotePageHeader({ activePage }: QuotePageHeaderProps) {
           </div>
         </Link>
 
-        <nav className="hidden flex-1 items-center justify-center gap-9 text-[15px] font-semibold text-zinc-200 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-8 text-[15px] font-semibold text-zinc-200 xl:flex">
           {navItems.map((item) => {
             const isActive = item.id === activePage;
 
@@ -82,9 +131,60 @@ export default function QuotePageHeader({ activePage }: QuotePageHeaderProps) {
               </Link>
             );
           })}
+
+          <div ref={servicesMenuRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setServicesOpen((current) => !current)}
+              className="group relative flex items-center gap-2 py-3 text-zinc-200 transition-colors duration-200 hover:text-white"
+              aria-expanded={servicesOpen}
+              aria-haspopup="menu"
+            >
+              <span>Services</span>
+              <span
+                aria-hidden="true"
+                className={`text-[11px] transition-transform duration-200 ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▼
+              </span>
+              <span
+                className={`absolute left-0 top-full h-[3px] rounded-full bg-[#b82727] transition-all duration-200 ${
+                  servicesOpen ? "w-7" : "w-0 group-hover:w-7"
+                }`}
+              />
+            </button>
+
+            {servicesOpen && (
+              <div
+                role="menu"
+                className="absolute right-0 top-full mt-4 w-72 overflow-hidden rounded-2xl border border-zinc-200 bg-white p-2 text-[#10203d] shadow-[0_18px_50px_rgba(8,18,37,0.22)]"
+              >
+                {serviceItems.map((item) => {
+                  const isExternal = item.href.startsWith("http");
+
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      role="menuitem"
+                      onClick={() => setServicesOpen(false)}
+                      className="flex items-center justify-between gap-4 rounded-xl px-4 py-3 text-[14px] font-semibold transition-colors hover:bg-[#f7f4ef] hover:text-[#9f1d1d]"
+                    >
+                      <span>{item.label}</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </nav>
 
-        <div className="hidden shrink-0 items-center justify-end lg:flex">
+        <div className="hidden shrink-0 items-center justify-end xl:flex">
           <a
             href="tel:01618812139"
             className="flex items-center gap-2 whitespace-nowrap text-[14px] font-semibold text-white transition-colors hover:text-[#f4d0d0]"
@@ -110,7 +210,7 @@ export default function QuotePageHeader({ activePage }: QuotePageHeaderProps) {
         <button
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-2xl text-white transition-colors hover:border-[#b82727] hover:text-[#f4d0d0] lg:hidden"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-2xl text-white transition-colors hover:border-[#b82727] hover:text-[#f4d0d0] xl:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileMenuOpen}
         >
@@ -119,20 +219,27 @@ export default function QuotePageHeader({ activePage }: QuotePageHeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-white/10 px-5 pb-5 sm:px-8 lg:hidden">
+        <div className="border-t border-white/10 px-5 pb-5 sm:px-8 xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col rounded-3xl border border-white/10 bg-white/5 p-5 text-[16px] font-semibold text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`border-b border-white/10 py-3 transition-colors last:border-b-0 hover:text-white ${
-                  item.id === activePage ? "text-white" : ""
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {mobileNavItems.map((item) => {
+              const isExternal = item.href.startsWith("http");
+              const itemId = "id" in item ? item.id : null;
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`border-b border-white/10 py-3 transition-colors last:border-b-0 hover:text-white ${
+                    itemId === activePage ? "text-white" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <a
               href="tel:01618812139"
               className="mt-4 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white"
