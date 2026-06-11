@@ -18,6 +18,24 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const landlordInsuranceOptions = [
+  {
+    title: "Let property",
+    description: "Get a quote for a let property policy.",
+    href: "https://www.sabacus.co.uk/product/new/dca/2343/dcachecksum/cmegPUpN9TNcyGrs24gUaZ-0TuZaQMbPu4VYs76a_mg/product/1",
+  },
+  {
+    title: "Unoccupied property",
+    description: "Get a quote for an unoccupied property policy.",
+    href: "https://www.sabacus.co.uk/product/new/dca/2343/dcachecksum/cmegPUpN9TNcyGrs24gUaZ-0TuZaQMbPu4VYs76a_mg/product/14",
+  },
+  {
+    title: "Commercial property",
+    description: "Get a quote for a commercial property policy.",
+    href: "https://www.sabacus.co.uk/product/new/dca/2343/dcachecksum/cmegPUpN9TNcyGrs24gUaZ-0TuZaQMbPu4VYs76a_mg/product/3",
+  },
+];
+
 export default function LandlordQuotePage() {
   const [step, setStep] = useState(1);
   const formTopRef = useRef<HTMLDivElement | null>(null);
@@ -358,6 +376,68 @@ export default function LandlordQuotePage() {
       setIsSubmitting(false);
     }
   };
+
+  const showExternalLandlordOptions = true;
+
+  if (showExternalLandlordOptions) {
+    return (
+      <main
+        className={`${instrumentSans.className} min-h-screen bg-white text-zinc-950`}
+      >
+        <QuotePageHeader activePage="landlord" />
+        <QuotePageHero
+          eyebrow="LANDLORD INSURANCE"
+          heading="What kind of insurance are you looking for?"
+          supportingText="Choose the property cover you need and we’ll take you to the right quote journey."
+        />
+
+        <section className="bg-[#f7f4ef] px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
+          <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+            <div className="rounded-[1.75rem] border border-zinc-200 bg-white p-5 shadow-[0_10px_30px_rgba(8,18,37,0.06)] sm:rounded-3xl sm:p-8">
+              <h2 className="text-[24px] font-bold tracking-tight text-[#10203d] sm:text-3xl">
+                What kind of insurance are you looking for?
+              </h2>
+              <p className="mt-3 text-[15px] leading-7 text-zinc-600 sm:text-[17px] sm:leading-8">
+                Select one of the options below and you’ll be taken to the
+                correct external quote page.
+              </p>
+
+              <div className="mt-8 grid gap-4">
+                {landlordInsuranceOptions.map((option) => (
+                  <a
+                    key={option.title}
+                    href={option.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_8px_24px_rgba(8,18,37,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9f1d1d]/50 hover:shadow-[0_14px_34px_rgba(8,18,37,0.1)] sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <span>
+                      <span className="block text-[17px] font-bold text-[#10203d]">
+                        {option.title}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-zinc-600">
+                        {option.description}
+                      </span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#10203d] text-white transition-colors group-hover:bg-[#9f1d1d]"
+                    >
+                      →
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <QuoteReassurancePanel />
+          </div>
+        </section>
+
+        <PageFooter />
+      </main>
+    );
+  }
 
   return (
     <main

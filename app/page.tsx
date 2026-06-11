@@ -48,6 +48,13 @@ const serviceCards = [
     href: "/quotes/car",
   },
   {
+    title: "Short Term Car Insurance",
+    description:
+      "We have partnered with GoShorty to help you find short term car insurance. When you click the button below, you will be redirected to our partner GoShorty to continue your quote.",
+    icon: "/icons/car-profile-thin.svg",
+    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
+  },
+  {
     title: "Travel Insurance",
     description:
       "We have partnered with Aneevo to assist you in finding Travel Insurance. When you click the link below you will be transferred to a white label website operated by Aneevo. Please view their Privacy Policy for full details on how your data is used.",
