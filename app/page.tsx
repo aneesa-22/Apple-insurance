@@ -69,7 +69,11 @@ const partners = [
   { name: "Sabre", logo: "/partners/sabre.png" },
   { name: "Collingwood", logo: "/partners/collingwood.png" },
   { name: "Haven", logo: "/partners/haven.png" },
+  { name: "GoShorty", logo: "/partners/go-shorty-logo-23-01.jpg" },
+  { name: "Aneevo", logo: "/partners/aneevo.png" },
 ];
+
+const partnerMarqueeItems = [...partners, ...partners];
 
 const processSteps = [
   {
@@ -274,19 +278,51 @@ export default function Home() {
               you.
             </p>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-5">
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                className="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white px-5 shadow-[0_10px_28px_rgba(8,18,37,0.04)]"
-              >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  className="max-h-12 w-auto object-contain"
-                />
-              </div>
-            ))}
+          <div className="relative mt-8 overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#f7f4ef] to-transparent sm:w-24"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#f7f4ef] to-transparent sm:w-24"
+            />
+            <div className="partner-marquee flex w-max gap-4">
+              {partnerMarqueeItems.map((partner, index) => (
+                <div
+                  key={`${partner.name}-${index}`}
+                  className="flex h-20 w-44 shrink-0 items-center justify-center rounded-2xl border border-zinc-200 bg-white px-5 shadow-[0_10px_28px_rgba(8,18,37,0.04)] sm:w-52"
+                  aria-hidden={index >= partners.length}
+                >
+                  <img
+                    src={partner.logo}
+                    alt={index >= partners.length ? "" : `${partner.name} logo`}
+                    className="max-h-12 w-auto max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            <style>{`
+              @keyframes partner-marquee {
+                from {
+                  transform: translateX(0);
+                }
+
+                to {
+                  transform: translateX(calc(-50% - 0.5rem));
+                }
+              }
+
+              .partner-marquee {
+                animation: partner-marquee 28s linear infinite;
+              }
+
+              @media (prefers-reduced-motion: reduce) {
+                .partner-marquee {
+                  animation: none;
+                }
+              }
+            `}</style>
           </div>
         </div>
       </section>
