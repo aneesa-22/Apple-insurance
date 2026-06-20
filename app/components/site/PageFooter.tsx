@@ -137,8 +137,19 @@ export default function QuoteFooter() {
             </div>
           </div>
 
-          <div className="pt-6 text-sm text-zinc-500">
+          <div className="flex flex-col gap-3 pt-6 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
             <p>© Apple Insurance Services. All rights reserved.</p>
+            <p>
+              Developed by{" "}
+              <a
+                href="https://linearstudio.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-zinc-300 transition-colors hover:text-white"
+              >
+                Linear Studio
+              </a>
+            </p>
           </div>
         </div>
       </footer>
