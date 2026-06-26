@@ -52,7 +52,7 @@ const serviceCards = [
     description:
       "Short term car insurance for flexible cover from 1 hour to 28 days, ideal when you only need temporary protection.",
     icon: "/icons/timer-2.svg",
-    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
+    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gsbrand=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
   },
   {
     title: "Travel Insurance",

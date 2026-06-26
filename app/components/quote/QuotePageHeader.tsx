@@ -39,7 +39,7 @@ const serviceItems = [
   { label: "Car Insurance", href: "/quotes/car" },
   {
     label: "Short Term Car Insurance",
-    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
+    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gsbrand=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
   },
   {
     label: "Travel Insurance",
