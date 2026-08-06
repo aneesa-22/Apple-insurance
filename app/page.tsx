@@ -13,6 +13,13 @@ const instrumentSans = Instrument_Sans({
 
 const serviceCards = [
   {
+    title: "Short Term Car and Taxi Insurance",
+    description:
+      "Flexible short term car and taxi insurance from 1 hour to 28 days, ideal when you only need temporary cover.",
+    icon: "/icons/timer-2.svg",
+    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gsbrand=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
+  },
+  {
     title: "Taxi Insurance",
     description:
       "Specialist cover for taxi drivers, private hire drivers and full-time road work.",
@@ -46,13 +53,6 @@ const serviceCards = [
       "Straightforward support for personal car insurance enquiries.",
     icon: "/icons/car-profile-thin.svg",
     href: "/quotes/car",
-  },
-  {
-    title: "Short Term Car and Taxi Insurance",
-    description:
-      "Flexible short term car and taxi insurance from 1 hour to 28 days, ideal when you only need temporary cover.",
-    icon: "/icons/timer-2.svg",
-    href: "https://b2b.goshorty.co.uk/?goidst=BLINK0305AppleInsurance&utm_source=BLINK0305AppleInsurance_embed&utm_medium=referral&utm_campaign=BLINK0305AppleInsurance&gsbrand=BLINK0305AppleInsurance&gspar1=&gspar2=&reg=",
   },
   {
     title: "Travel Insurance",
