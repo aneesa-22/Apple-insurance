@@ -27,6 +27,13 @@ const serviceCards = [
     href: "/quotes/taxi",
   },
   {
+    title: "Car Insurance",
+    description:
+      "Straightforward support for personal car insurance enquiries.",
+    icon: "/icons/car-profile-thin.svg",
+    href: "/quotes/car",
+  },
+  {
     title: "Home Insurance",
     description:
       "Flexible home cover for buildings, contents and everyday peace of mind.",
@@ -46,13 +53,6 @@ const serviceCards = [
       "Support for motor trade businesses, vehicles and specialist road risks.",
     icon: "/icons/engine.svg",
     href: "/quotes/motor",
-  },
-  {
-    title: "Car Insurance",
-    description:
-      "Straightforward support for personal car insurance enquiries.",
-    icon: "/icons/car-profile-thin.svg",
-    href: "/quotes/car",
   },
   {
     title: "Travel Insurance",
